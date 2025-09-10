@@ -1,5 +1,6 @@
 # Changelog
 
+* [3.8.3](#383-2025-09-10)
 * [3.8.2](#382-2025-08-11)
 * [3.8.1](#381-2025-08-07) (removed due to a bug)
 * [3.8.0](#380-2025-08-06) (supplanted by 3.8.1)
@@ -42,6 +43,23 @@
 * [1.2.0](#120-2022-04-10)
 * [1.1.0](#110-2022-03-20)
 * [1.0.0](#100-2022-03-08)
+
+## [3.8.3](https://github.com/alexandrehtrb/Pororoca/tree/3.8.3) (2025-09-10)
+
+### Features
+
+- Recursive variables. (issue #119, thanks @OlivGhanim!)
+- Polish translation. (thanks @pq4u!)
+
+### Refactors
+
+- Caching HTTP version compatibility O.S. checks.
+- One-way binding in several views.
+- Removed unnecessary memory allocations when resolving request headers.
+
+### Others
+
+- Raised .NET SDK version to 8.0.414.
 
 ## [3.8.2](https://github.com/alexandrehtrb/Pororoca/tree/3.8.2) (2025-08-11)
 
