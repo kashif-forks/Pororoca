@@ -60,6 +60,7 @@
 ### Others
 
 - Raised .NET SDK version to 8.0.414.
+- Added donation buttons.
 
 ## [3.8.2](https://github.com/alexandrehtrb/Pororoca/tree/3.8.2) (2025-08-11)
 
