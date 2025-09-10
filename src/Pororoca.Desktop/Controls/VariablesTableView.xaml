@@ -22,30 +22,30 @@
       HeadersVisibility="All"
       Classes="DragAndDrop VariablesDragAndDrop">
     <!--DataGrid.KeyBindings>
-      <KeyBinding Command="{Binding VariablesTableVm.CutCmd}" Gesture="Ctrl+X" />
-      <KeyBinding Command="{Binding VariablesTableVm.CopyCmd}" Gesture="Ctrl+C" />
-      <KeyBinding Command="{Binding VariablesTableVm.PasteCmd}" Gesture="Ctrl+V" />
-      <KeyBinding Command="{Binding VariablesTableVm.DuplicateCmd}" Gesture="Ctrl+D" />
-      <KeyBinding Command="{Binding VariablesTableVm.DeleteCmd}" Gesture="Delete" />
+      <KeyBinding Command="{Binding VariablesTableVm.CutCmd, Mode=OneWay}" Gesture="Ctrl+X" />
+      <KeyBinding Command="{Binding VariablesTableVm.CopyCmd, Mode=OneWay}" Gesture="Ctrl+C" />
+      <KeyBinding Command="{Binding VariablesTableVm.PasteCmd, Mode=OneWay}" Gesture="Ctrl+V" />
+      <KeyBinding Command="{Binding VariablesTableVm.DuplicateCmd, Mode=OneWay}" Gesture="Ctrl+D" />
+      <KeyBinding Command="{Binding VariablesTableVm.DeleteCmd, Mode=OneWay}" Gesture="Delete" />
     </DataGrid.KeyBindings-->
     <DataGrid.ContextMenu>
       <ContextMenu>
         <MenuItem
-            Header="{Binding i18n.ContextMenu.Cut}"
-            Command="{Binding CutCmd}"
+            Header="{Binding i18n.ContextMenu.Cut, Mode=OneWay}"
+            Command="{Binding CutCmd, Mode=OneWay}"
             InputGesture="Ctrl+X"/>
         <MenuItem
-            Header="{Binding i18n.ContextMenu.Copy}"
-            Command="{Binding CopyCmd}"
+            Header="{Binding i18n.ContextMenu.Copy, Mode=OneWay}"
+            Command="{Binding CopyCmd, Mode=OneWay}"
             InputGesture="Ctrl+C"/>
         <MenuItem
-            Header="{Binding i18n.ContextMenu.Paste}"
-            Command="{Binding PasteCmd}"
+            Header="{Binding i18n.ContextMenu.Paste, Mode=OneWay}"
+            Command="{Binding PasteCmd, Mode=OneWay}"
             InputGesture="Ctrl+V"
-            IsEnabled="{Binding InnerClipboardArea.CanPaste}"/>
+            IsEnabled="{Binding InnerClipboardArea.CanPaste, Mode=OneWay}"/>
         <MenuItem
-            Header="{Binding i18n.ContextMenu.Delete}"
-            Command="{Binding DeleteCmd}"
+            Header="{Binding i18n.ContextMenu.Delete, Mode=OneWay}"
+            Command="{Binding DeleteCmd, Mode=OneWay}"
             InputGesture="Delete"/>
       </ContextMenu>
     </DataGrid.ContextMenu>
@@ -54,28 +54,28 @@
           Width="*"
           Binding="{Binding Enabled}">
         <DataGridCheckBoxColumn.Header>
-          <TextBlock Text="{Binding i18n.Variables.Enabled}"/>
+          <TextBlock Text="{Binding i18n.Variables.Enabled, Mode=OneWay}"/>
         </DataGridCheckBoxColumn.Header>
       </DataGridCheckBoxColumn>
       <DataGridTextColumn
           Width="2*"
           Binding="{Binding Key}">
         <DataGridTextColumn.Header>
-          <TextBlock Text="{Binding i18n.Variables.Name}"/>
+          <TextBlock Text="{Binding i18n.Variables.Name, Mode=OneWay}"/>
         </DataGridTextColumn.Header>
       </DataGridTextColumn>
       <DataGridTextColumn
           Width="2*"
           Binding="{Binding Value}">
         <DataGridTextColumn.Header>
-          <TextBlock Text="{Binding i18n.Variables.Value}"/>
+          <TextBlock Text="{Binding i18n.Variables.Value, Mode=OneWay}"/>
         </DataGridTextColumn.Header>
       </DataGridTextColumn>
       <DataGridCheckBoxColumn
           Width="*"
           Binding="{Binding IsSecret}">
         <DataGridCheckBoxColumn.Header>
-          <TextBlock Text="{Binding i18n.Variables.IsSecret}"/>
+          <TextBlock Text="{Binding i18n.Variables.IsSecret, Mode=OneWay}"/>
         </DataGridCheckBoxColumn.Header>
       </DataGridCheckBoxColumn>
       <DataGridTemplateColumn
@@ -84,7 +84,7 @@
         <DataGridTemplateColumn.CellTemplate>
           <DataTemplate>
             <Button
-                Command="{Binding RemoveVariableCmd}"
+                Command="{Binding RemoveVariableCmd, Mode=OneWay}"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
                 HorizontalContentAlignment="Center"

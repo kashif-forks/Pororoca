@@ -34,11 +34,11 @@
         VerticalAlignment="Stretch">
       <StackPanel
           Orientation="Horizontal"
-          IsVisible="{Binding !IsEditing}">
+          IsVisible="{Binding !IsEditing, Mode=OneWay}">
         <Image
             x:Name="imgIcon"
             Margin="0,0,12,0"
-            IsVisible="{Binding HasIcon}"
+            IsVisible="{Binding HasIcon, Mode=OneWay}"
             Width="32"
             Height="32"
             VerticalAlignment="Center"
@@ -49,7 +49,7 @@
         </Image>
         <TextBlock
             x:Name="tbText"
-            Text="{Binding Txt}"
+            Text="{Binding Txt, Mode=OneWay}"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Center"
             Classes="PageTitle"/>
@@ -58,7 +58,7 @@
       <TextBox
           x:Name="txtBox"
           Text="{Binding Txt}"
-          IsVisible="{Binding IsEditing}"
+          IsVisible="{Binding IsEditing, Mode=OneWay}"
           FontSize="18"
           Padding="8,4,8,4"
           VerticalContentAlignment="Center"
@@ -74,8 +74,8 @@
         Grid.Row="0"
         Width="40"
         Margin="12,0,0,0"
-        Command="{Binding EditOrApplyTxtChangeCmd}"
-        ToolTip.Tip="{Binding i18n.EditableTextBlock.RenameToolTip}"
+        Command="{Binding EditOrApplyTxtChangeCmd, Mode=OneWay}"
+        ToolTip.Tip="{Binding i18n.EditableTextBlock.RenameToolTip, Mode=OneWay}"
         HorizontalContentAlignment="Center"
         VerticalContentAlignment="Center"
         HorizontalAlignment="Left"
@@ -84,7 +84,7 @@
       <Panel>
         <Image
             x:Name="imgEdit"
-            IsVisible="{Binding !IsEditing}"
+            IsVisible="{Binding !IsEditing, Mode=OneWay}"
             Width="16"
             Height="16"
             VerticalAlignment="Center"
@@ -95,7 +95,7 @@
         </Image>
         <Image
             x:Name="imgApplyTxt"
-            IsVisible="{Binding IsEditing}"
+            IsVisible="{Binding IsEditing, Mode=OneWay}"
             Width="16"
             Height="16"
             VerticalAlignment="Center"

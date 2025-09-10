@@ -41,24 +41,24 @@
           SelectedIndex="{Binding AuthModeSelectedIndex}">
         <ComboBoxItem
             x:Name="cbiReqAuthNone"
-            Content="{Binding i18n.RequestAuth.AuthModeNone}"/>
+            Content="{Binding i18n.RequestAuth.AuthModeNone, Mode=OneWay}"/>
         <ComboBoxItem
             x:Name="cbiReqAuthInheritFromCollection"
-            Content="{Binding i18n.RequestAuth.AuthModeInheritFromCollection}"
-            IsEnabled="{Binding IsInheritFromCollectionOptionEnabled}"/>
+            Content="{Binding i18n.RequestAuth.AuthModeInheritFromCollection, Mode=OneWay}"
+            IsEnabled="{Binding IsInheritFromCollectionOptionEnabled, Mode=OneWay}"/>
         <ComboBoxItem
             x:Name="cbiReqAuthBasic"
-            Content="{Binding i18n.RequestAuth.AuthModeBasic}"/>
+            Content="{Binding i18n.RequestAuth.AuthModeBasic, Mode=OneWay}"/>
         <ComboBoxItem
             x:Name="cbiReqAuthBearer"
-            Content="{Binding i18n.RequestAuth.AuthModeBearer}"/>
+            Content="{Binding i18n.RequestAuth.AuthModeBearer, Mode=OneWay}"/>
         <ComboBoxItem
             x:Name="cbiReqAuthWindows"
-            Content="{Binding i18n.RequestAuth.AuthModeWindows}"/>
+            Content="{Binding i18n.RequestAuth.AuthModeWindows, Mode=OneWay}"/>
         <!-- Mode=TwoWay in IsSelected below is required, otherwise, layout will disappear when changing between different requests -->
         <ComboBoxItem
             x:Name="cbiReqAuthClientCertificate"
-            Content="{Binding i18n.RequestAuth.AuthModeClientCertificate}"/>
+            Content="{Binding i18n.RequestAuth.AuthModeClientCertificate, Mode=OneWay}"/>
       </ComboBox>
 
       <ComboBox
@@ -74,13 +74,13 @@
                       ConverterParameter=ClientCertificate}">
         <ComboBoxItem
             x:Name="cbiReqAuthClientCertificateNone"
-            Content="{Binding i18n.RequestAuth.ClientCertificateTypeNone}"/>
+            Content="{Binding i18n.RequestAuth.ClientCertificateTypeNone, Mode=OneWay}"/>
         <ComboBoxItem
             x:Name="cbiReqAuthClientCertificatePkcs12"
-            Content="{Binding i18n.RequestAuth.ClientCertificateTypePkcs12}"/>
+            Content="{Binding i18n.RequestAuth.ClientCertificateTypePkcs12, Mode=OneWay}"/>
         <ComboBoxItem
             x:Name="cbiReqAuthClientCertificatePem"
-            Content="{Binding i18n.RequestAuth.ClientCertificateTypePem}"/>
+            Content="{Binding i18n.RequestAuth.ClientCertificateTypePem, Mode=OneWay}"/>
       </ComboBox>
     </StackPanel>
 
@@ -99,7 +99,7 @@
           Width="200"
           HorizontalAlignment="Left"
           VerticalContentAlignment="Center"
-          Watermark="{Binding i18n.RequestAuth.AuthModeBasicLoginWatermark}"
+          Watermark="{Binding i18n.RequestAuth.AuthModeBasicLoginWatermark, Mode=OneWay}"
           Classes="SingleLine"
           Text="{Binding BasicAuthLogin}"/>
       <TextBox
@@ -108,7 +108,7 @@
           Margin="0,12,0,0"
           HorizontalAlignment="Left"
           VerticalContentAlignment="Center"
-          Watermark="{Binding i18n.RequestAuth.AuthModeBasicPasswordWatermark}"
+          Watermark="{Binding i18n.RequestAuth.AuthModeBasicPasswordWatermark, Mode=OneWay}"
           Classes="SingleLine"
           Text="{Binding BasicAuthPassword}"/>
     </StackPanel>
@@ -127,7 +127,7 @@
           Width="200"
           HorizontalAlignment="Left"
           VerticalContentAlignment="Center"
-          Watermark="{Binding i18n.RequestAuth.AuthModeBearerTokenWatermark}"
+          Watermark="{Binding i18n.RequestAuth.AuthModeBearerTokenWatermark, Mode=OneWay}"
           Classes="SingleLine"
           Text="{Binding BearerAuthToken}"/>
     </StackPanel>
@@ -143,7 +143,7 @@
                     ConverterParameter=Windows}">
       <CheckBox
           Name="chkbWindowsAuthUseCurrentUser"
-          Content="{Binding i18n.RequestAuth.AuthModeWindowsUseCurrentUser}"
+          Content="{Binding i18n.RequestAuth.AuthModeWindowsUseCurrentUser, Mode=OneWay}"
           IsChecked="{Binding WindowsAuthUseCurrentUser}"/>
       <TextBox
           Name="tbWindowsAuthLogin"
@@ -151,10 +151,10 @@
           Margin="0,12,0,0"
           HorizontalAlignment="Left"
           VerticalContentAlignment="Center"
-          Watermark="{Binding i18n.RequestAuth.AuthModeWindowsLoginWatermark}"
+          Watermark="{Binding i18n.RequestAuth.AuthModeWindowsLoginWatermark, Mode=OneWay}"
           Classes="SingleLine"
-          Classes.HasValidationProblem="{Binding HasWindowsAuthLoginProblem}"
-          IsVisible="{Binding !WindowsAuthUseCurrentUser}"
+          Classes.HasValidationProblem="{Binding HasWindowsAuthLoginProblem, Mode=OneWay}"
+          IsVisible="{Binding !WindowsAuthUseCurrentUser, Mode=OneWay}"
           Text="{Binding WindowsAuthLogin}"/>
       <TextBox
           Name="tbWindowsAuthPassword"
@@ -162,10 +162,10 @@
           Margin="0,12,0,0"
           HorizontalAlignment="Left"
           VerticalContentAlignment="Center"
-          Watermark="{Binding i18n.RequestAuth.AuthModeWindowsPasswordWatermark}"
+          Watermark="{Binding i18n.RequestAuth.AuthModeWindowsPasswordWatermark, Mode=OneWay}"
           Classes="SingleLine"
-          Classes.HasValidationProblem="{Binding HasWindowsAuthPasswordProblem}"
-          IsVisible="{Binding !WindowsAuthUseCurrentUser}"
+          Classes.HasValidationProblem="{Binding HasWindowsAuthPasswordProblem, Mode=OneWay}"
+          IsVisible="{Binding !WindowsAuthUseCurrentUser, Mode=OneWay}"
           Text="{Binding WindowsAuthPassword}"/>
       <TextBox
           Name="tbWindowsAuthDomain"
@@ -173,10 +173,10 @@
           Margin="0,12,0,0"
           HorizontalAlignment="Left"
           VerticalContentAlignment="Center"
-          Watermark="{Binding i18n.RequestAuth.AuthModeWindowsDomainWatermark}"
+          Watermark="{Binding i18n.RequestAuth.AuthModeWindowsDomainWatermark, Mode=OneWay}"
           Classes="SingleLine"
-          Classes.HasValidationProblem="{Binding HasWindowsAuthDomainProblem}"
-          IsVisible="{Binding !WindowsAuthUseCurrentUser}"
+          Classes.HasValidationProblem="{Binding HasWindowsAuthDomainProblem, Mode=OneWay}"
+          IsVisible="{Binding !WindowsAuthUseCurrentUser, Mode=OneWay}"
           Text="{Binding WindowsAuthDomain}"/>
     </StackPanel>
     <!-- CLIENT CERTIFICATE AUTH -->
@@ -208,26 +208,26 @@
         <TextBox
             Name="tbClientCertificatePkcs12FilePath"
             Width="240"
-            Watermark="{Binding i18n.RequestAuth.CertificateFilePathWatermark}"
+            Watermark="{Binding i18n.RequestAuth.CertificateFilePathWatermark, Mode=OneWay}"
             HorizontalAlignment="Left"
             VerticalContentAlignment="Center"
             Classes="SingleLine"
-            Classes.HasValidationProblem="{Binding HasClientCertificateAuthPkcs12CertificateFilePathProblem}"
+            Classes.HasValidationProblem="{Binding HasClientCertificateAuthPkcs12CertificateFilePathProblem, Mode=OneWay}"
             Text="{Binding ClientCertificateAuthPkcs12CertificateFilePath}"/>
         <TextBox
             Name="tbClientCertificatePkcs12FilePassword"
             Width="240"
             Margin="0,12,0,0"
-            Watermark="{Binding i18n.RequestAuth.FilePasswordWatermark}"
+            Watermark="{Binding i18n.RequestAuth.FilePasswordWatermark, Mode=OneWay}"
             HorizontalAlignment="Left"
             VerticalContentAlignment="Center"
             Classes="SingleLine"
-            Classes.HasValidationProblem="{Binding HasClientCertificateAuthPkcs12FilePasswordProblem}"
+            Classes.HasValidationProblem="{Binding HasClientCertificateAuthPkcs12FilePasswordProblem, Mode=OneWay}"
             Text="{Binding ClientCertificateAuthPkcs12FilePassword}"/>
         <Button
             Margin="0,12,0,0"
-            Content="{Binding i18n.RequestAuth.Pkcs12SearchFile}"
-            Command="{Binding SearchClientCertificatePkcs12FileCmd}"
+            Content="{Binding i18n.RequestAuth.Pkcs12SearchFile, Mode=OneWay}"
+            Command="{Binding SearchClientCertificatePkcs12FileCmd, Mode=OneWay}"
             Classes="Secondary"/>
       </StackPanel>
       <!-- CLIENT CERTIFICATE AUTH PEM -->
@@ -242,27 +242,27 @@
         <TextBox
             Name="tbClientCertificatePemCertificateFilePath"
             Width="240"
-            Watermark="{Binding i18n.RequestAuth.CertificateFilePathWatermark}"
+            Watermark="{Binding i18n.RequestAuth.CertificateFilePathWatermark, Mode=OneWay}"
             HorizontalAlignment="Left"
             VerticalContentAlignment="Center"
             Classes="SingleLine"
-            Classes.HasValidationProblem="{Binding HasClientCertificateAuthPemCertificateFilePathProblem}"
+            Classes.HasValidationProblem="{Binding HasClientCertificateAuthPemCertificateFilePathProblem, Mode=OneWay}"
             Text="{Binding ClientCertificateAuthPemCertificateFilePath}"/>
         <TextBox
             Name="tbClientCertificatePemPrivateKeyFilePath"
             Width="240"
             Margin="0,12,0,0"
-            Watermark="{Binding i18n.RequestAuth.PrivateKeyFilePathWatermark}"
+            Watermark="{Binding i18n.RequestAuth.PrivateKeyFilePathWatermark, Mode=OneWay}"
             HorizontalAlignment="Left"
             VerticalContentAlignment="Center"
             Classes="SingleLine"
-            Classes.HasValidationProblem="{Binding HasClientCertificateAuthPemPrivateKeyFilePathProblem}"
+            Classes.HasValidationProblem="{Binding HasClientCertificateAuthPemPrivateKeyFilePathProblem, Mode=OneWay}"
             Text="{Binding ClientCertificateAuthPemPrivateKeyFilePath}"/>
         <TextBox
             Name="tbClientCertificatePemPrivateKeyPassword"
             Width="240"
             Margin="0,12,0,0"
-            Watermark="{Binding i18n.RequestAuth.FilePasswordWatermark}"
+            Watermark="{Binding i18n.RequestAuth.FilePasswordWatermark, Mode=OneWay}"
             HorizontalAlignment="Left"
             VerticalContentAlignment="Center"
             Classes="SingleLine"
@@ -271,21 +271,21 @@
             Orientation="Horizontal"
             Margin="0,12,0,0">
           <Button
-              Content="{Binding i18n.RequestAuth.PemSearchCertFile}"
+              Content="{Binding i18n.RequestAuth.PemSearchCertFile, Mode=OneWay}"
               Margin="0,0,6,0"
-              Command="{Binding SearchClientCertificatePemCertFileCmd}"
+              Command="{Binding SearchClientCertificatePemCertFileCmd, Mode=OneWay}"
               Classes="Secondary"/>
           <Button
-              Content="{Binding i18n.RequestAuth.PemSearchPrivateKeyFile}"
+              Content="{Binding i18n.RequestAuth.PemSearchPrivateKeyFile, Mode=OneWay}"
               Margin="6,0,0,0"
-              Command="{Binding SearchClientCertificatePemPrivateKeyFileCmd}"
+              Command="{Binding SearchClientCertificatePemPrivateKeyFileCmd, Mode=OneWay}"
               Classes="Secondary"/>
         </StackPanel>
         <TextBlock
             TextWrapping="Wrap"
             HorizontalAlignment="Stretch"
             Margin="0,24,0,24"
-            Text="{Binding i18n.RequestAuth.PemClientCertificatesTip}"
+            Text="{Binding i18n.RequestAuth.PemClientCertificatesTip, Mode=OneWay}"
             Classes="TipText"/>
       </StackPanel>
     </Grid>

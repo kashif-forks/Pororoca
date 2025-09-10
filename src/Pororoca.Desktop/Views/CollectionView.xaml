@@ -23,56 +23,56 @@
     <controls:EditableTextBlock
         x:Name="etbName"
         HorizontalAlignment="Stretch"
-        DataContext="{Binding NameEditableVm}"/>
+        DataContext="{Binding NameEditableVm, Mode=OneWay}"/>
 
     <controls:IconButton
         x:Name="btAddFolder"
         Margin="0,32,0,0"
         Icon="{StaticResource IconAddFolderGeometry}"
-        Text="{Binding i18n.Collection.AddFolder}"
-        Command="{Binding AddNewFolderCmd}"/>
+        Text="{Binding i18n.Collection.AddFolder, Mode=OneWay}"
+        Command="{Binding AddNewFolderCmd, Mode=OneWay}"/>
 
     <controls:IconButton
         x:Name="btAddHttpReq"
         Icon="{StaticResource IconAddGeometry}"
-        Text="{Binding i18n.Collection.AddHttpRequest}"
-        Command="{Binding AddNewHttpRequestCmd}"/>
+        Text="{Binding i18n.Collection.AddHttpRequest, Mode=OneWay}"
+        Command="{Binding AddNewHttpRequestCmd, Mode=OneWay}"/>
 
     <controls:IconButton
         x:Name="btAddWebSocket"
         Icon="{StaticResource IconWebsocketGeometry}"
-        Text="{Binding i18n.Collection.AddWebSocketConnection}"
-        Command="{Binding AddNewWebSocketConnectionCmd}"/>
+        Text="{Binding i18n.Collection.AddWebSocketConnection, Mode=OneWay}"
+        Command="{Binding AddNewWebSocketConnectionCmd, Mode=OneWay}"/>
 
     <controls:IconButton
         x:Name="btAddHttpRep"
         Icon="{StaticResource IconRifleGunGeometry}"
-        Text="{Binding i18n.Collection.AddHttpRepeater}"
-        Command="{Binding AddNewHttpRepeaterCmd}"/>
+        Text="{Binding i18n.Collection.AddHttpRepeater, Mode=OneWay}"
+        Command="{Binding AddNewHttpRepeaterCmd, Mode=OneWay}"/>
 
     <controls:IconButton
         x:Name="btSetColScopedReqHeaders"
         Icon="{StaticResource IconHeadersGeometry}"
-        Text="{Binding i18n.Collection.SetCollectionScopedHeaders}"
-        Command="{Binding ShowCollectionScopedHeadersCmd}"/>
+        Text="{Binding i18n.Collection.SetCollectionScopedHeaders, Mode=OneWay}"
+        Command="{Binding ShowCollectionScopedHeadersCmd, Mode=OneWay}"/>
 
     <controls:IconButton
         x:Name="btAddEnvironment"
         Icon="{StaticResource IconLeafGeometry}"
-        Text="{Binding i18n.Collection.AddEnvironment}"
-        Command="{Binding AddNewEnvironmentCmd}"/>
+        Text="{Binding i18n.Collection.AddEnvironment, Mode=OneWay}"
+        Command="{Binding AddNewEnvironmentCmd, Mode=OneWay}"/>
 
     <controls:IconButton
         x:Name="btImportEnv"
         Icon="{StaticResource IconImportGeometry}"
-        Text="{Binding i18n.Collection.ImportEnvironment}"
-        Command="{Binding ImportEnvironmentsCmd}"/>
+        Text="{Binding i18n.Collection.ImportEnvironment, Mode=OneWay}"
+        Command="{Binding ImportEnvironmentsCmd, Mode=OneWay}"/>
 
     <controls:IconButton
         x:Name="btExportCollection"
         Icon="{StaticResource IconExportGeometry}"
-        Text="{Binding i18n.Collection.ExportCollection}"
-        Command="{Binding ExportCollectionCmd}"/>
+        Text="{Binding i18n.Collection.ExportCollection, Mode=OneWay}"
+        Command="{Binding ExportCollectionCmd, Mode=OneWay}"/>
 
   </StackPanel>
 </UserControl>

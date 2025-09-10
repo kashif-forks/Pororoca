@@ -22,21 +22,21 @@
 
   <Window.KeyBindings>
     <!-- Keyboard shortcuts are defined in CollectionsGroupView and MainWindow -->
-    <KeyBinding Command="{Binding HotKeys.ShowHelpCmd}" Gesture="F1"/>
-    <KeyBinding Command="{Binding HotKeys.RenameCmd}" Gesture="F2"/>
-    <KeyBinding Command="{Binding HotKeys.FocusOnUrlCmd}" Gesture="F4"/>
-    <KeyBinding Command="{Binding HotKeys.SendRequestOrConnectWebSocketCmd}" Gesture="F5"/>
-    <KeyBinding Command="{Binding HotKeys.CancelRequestOrDisconnectWebSocketCmd}" Gesture="F6"/>
-    <KeyBinding Command="{Binding HotKeys.CyclePreviousEnvironmentToActiveCmd}" Gesture="F7"/>
-    <KeyBinding Command="{Binding HotKeys.CycleNextEnvironmentToActiveCmd}" Gesture="F8"/>
-    <KeyBinding Command="{Binding HotKeys.SaveResponseToFileCmd}" Gesture="F9"/>
-    <KeyBinding Command="{Binding HotKeys.ExportHttpLogToFileCmd}" Gesture="F10"/>
-    <KeyBinding Command="{Binding HotKeys.MoveUpCmd}" Gesture="Alt+Up"/>
-    <KeyBinding Command="{Binding HotKeys.MoveDownCmd}" Gesture="Alt+Down"/>
-    <KeyBinding Command="{Binding HotKeys.SwitchToPreviousItemCmd}" Gesture="Ctrl+PageUp"/>
-    <KeyBinding Command="{Binding HotKeys.SwitchToNextItemCmd}" Gesture="Ctrl+PageDown"/>
-    <KeyBinding Command="{Binding RunUITestsCmd}" Gesture="Ctrl+F12"/>
-    <KeyBinding Command="{Binding SaveAllCmd}" Gesture="Ctrl+Shift+S"/>
+    <KeyBinding Command="{Binding HotKeys.ShowHelpCmd, Mode=OneWay}" Gesture="F1"/>
+    <KeyBinding Command="{Binding HotKeys.RenameCmd, Mode=OneWay}" Gesture="F2"/>
+    <KeyBinding Command="{Binding HotKeys.FocusOnUrlCmd, Mode=OneWay}" Gesture="F4"/>
+    <KeyBinding Command="{Binding HotKeys.SendRequestOrConnectWebSocketCmd, Mode=OneWay}" Gesture="F5"/>
+    <KeyBinding Command="{Binding HotKeys.CancelRequestOrDisconnectWebSocketCmd, Mode=OneWay}" Gesture="F6"/>
+    <KeyBinding Command="{Binding HotKeys.CyclePreviousEnvironmentToActiveCmd, Mode=OneWay}" Gesture="F7"/>
+    <KeyBinding Command="{Binding HotKeys.CycleNextEnvironmentToActiveCmd, Mode=OneWay}" Gesture="F8"/>
+    <KeyBinding Command="{Binding HotKeys.SaveResponseToFileCmd, Mode=OneWay}" Gesture="F9"/>
+    <KeyBinding Command="{Binding HotKeys.ExportHttpLogToFileCmd, Mode=OneWay}" Gesture="F10"/>
+    <KeyBinding Command="{Binding HotKeys.MoveUpCmd, Mode=OneWay}" Gesture="Alt+Up"/>
+    <KeyBinding Command="{Binding HotKeys.MoveDownCmd, Mode=OneWay}" Gesture="Alt+Down"/>
+    <KeyBinding Command="{Binding HotKeys.SwitchToPreviousItemCmd, Mode=OneWay}" Gesture="Ctrl+PageUp"/>
+    <KeyBinding Command="{Binding HotKeys.SwitchToNextItemCmd, Mode=OneWay}" Gesture="Ctrl+PageDown"/>
+    <KeyBinding Command="{Binding RunUITestsCmd, Mode=OneWay}" Gesture="Ctrl+F12"/>
+    <KeyBinding Command="{Binding SaveAllCmd, Mode=OneWay}" Gesture="Ctrl+Shift+S"/>
   </Window.KeyBindings>
 
   <Panel>
@@ -53,41 +53,41 @@
         </Menu.ItemsPanel>
         <MenuItem
             x:Name="topMenuItemFile"
-            Header="{Binding i18n.TopMenu.File}">
+            Header="{Binding i18n.TopMenu.File, Mode=OneWay}">
           <MenuItem
               x:Name="topMenuItemFileNewCollection"
-              Header="{Binding i18n.TopMenuFile.NewCollection}"
-              Command="{Binding AddNewCollectionCmd}"/>
+              Header="{Binding i18n.TopMenuFile.NewCollection, Mode=OneWay}"
+              Command="{Binding AddNewCollectionCmd, Mode=OneWay}"/>
           <Separator/>
           <MenuItem
               x:Name="topMenuItemFileImportCollectionsFromFile"
-              Header="{Binding i18n.TopMenuFile.ImportFromFile}"
-              Command="{Binding ImportCollectionsFromFileCmd}"/>
+              Header="{Binding i18n.TopMenuFile.ImportFromFile, Mode=OneWay}"
+              Command="{Binding ImportCollectionsFromFileCmd, Mode=OneWay}"/>
           <Separator/>
           <MenuItem
-              Header="{Binding i18n.TopMenuFile.SaveAll}"
+              Header="{Binding i18n.TopMenuFile.SaveAll, Mode=OneWay}"
               InputGesture="Ctrl+Shift+S"
-              Command="{Binding SaveAllCmd}"/>
+              Command="{Binding SaveAllCmd, Mode=OneWay}"/>
           <Separator/>
           <MenuItem
               x:Name="topMenuItemFileExit"
-              Header="{Binding i18n.TopMenuFile.Exit}"
+              Header="{Binding i18n.TopMenuFile.Exit, Mode=OneWay}"
               InputGesture="Alt+F4"
               Click="OnCloseMainWindow"/>
         </MenuItem>
         <MenuItem
             x:Name="topMenuItemOptions"
-            Header="{Binding i18n.TopMenu.Options}">
+            Header="{Binding i18n.TopMenu.Options, Mode=OneWay}">
           <MenuItem
               x:Name="topMenuItemOptionsTheme"
-              Header="{Binding i18n.TopMenuOptions.Theme}">
+              Header="{Binding i18n.TopMenuOptions.Theme, Mode=OneWay}">
             <MenuItem
                 x:Name="topMenuItemOptionsThemeLight"
-                Header="{Binding i18n.TopMenuTheme.Light}"
-                Command="{Binding SwitchToLightThemeCmd}">
+                Header="{Binding i18n.TopMenuTheme.Light, Mode=OneWay}"
+                Command="{Binding SwitchToLightThemeCmd, Mode=OneWay}">
               <MenuItem.Icon>
                 <Image
-                    IsVisible="{Binding IsThemeLight}"
+                    IsVisible="{Binding IsThemeLight, Mode=OneWay}"
                     Classes="MenuItemCheckMark">
                   <Image.Source>
                     <DrawingImage Drawing="{StaticResource IconCheck}"/>
@@ -97,11 +97,11 @@
             </MenuItem>
             <MenuItem
                 x:Name="topMenuItemOptionsThemeLight2"
-                Header="{Binding i18n.TopMenuTheme.Light2}"
-                Command="{Binding SwitchToLight2ThemeCmd}">
+                Header="{Binding i18n.TopMenuTheme.Light2, Mode=OneWay}"
+                Command="{Binding SwitchToLight2ThemeCmd, Mode=OneWay}">
               <MenuItem.Icon>
                 <Image
-                    IsVisible="{Binding IsThemeLight2}"
+                    IsVisible="{Binding IsThemeLight2, Mode=OneWay}"
                     Classes="MenuItemCheckMark">
                   <Image.Source>
                     <DrawingImage Drawing="{StaticResource IconCheck}"/>
@@ -111,11 +111,11 @@
             </MenuItem>
             <MenuItem
                 x:Name="topMenuItemOptionsThemeDark"
-                Header="{Binding i18n.TopMenuTheme.Dark}"
-                Command="{Binding SwitchToDarkThemeCmd}">
+                Header="{Binding i18n.TopMenuTheme.Dark, Mode=OneWay}"
+                Command="{Binding SwitchToDarkThemeCmd, Mode=OneWay}">
               <MenuItem.Icon>
                 <Image
-                    IsVisible="{Binding IsThemeDark}"
+                    IsVisible="{Binding IsThemeDark, Mode=OneWay}"
                     Classes="MenuItemCheckMark">
                   <Image.Source>
                     <DrawingImage Drawing="{StaticResource IconCheck}"/>
@@ -125,11 +125,11 @@
             </MenuItem>
             <MenuItem
                 x:Name="topMenuItemOptionsThemePampa"
-                Header="{Binding i18n.TopMenuTheme.Pampa}"
-                Command="{Binding SwitchToPampaThemeCmd}">
+                Header="{Binding i18n.TopMenuTheme.Pampa, Mode=OneWay}"
+                Command="{Binding SwitchToPampaThemeCmd, Mode=OneWay}">
               <MenuItem.Icon>
                 <Image
-                    IsVisible="{Binding IsThemePampa}"
+                    IsVisible="{Binding IsThemePampa, Mode=OneWay}"
                     Classes="MenuItemCheckMark">
                   <Image.Source>
                     <DrawingImage Drawing="{StaticResource IconCheck}"/>
@@ -139,11 +139,11 @@
             </MenuItem>
             <MenuItem
                 x:Name="topMenuItemOptionsThemeAmazonianNight"
-                Header="{Binding i18n.TopMenuTheme.AmazonianNight}"
-                Command="{Binding SwitchToAmazonianNightThemeCmd}">
+                Header="{Binding i18n.TopMenuTheme.AmazonianNight, Mode=OneWay}"
+                Command="{Binding SwitchToAmazonianNightThemeCmd, Mode=OneWay}">
               <MenuItem.Icon>
                 <Image
-                    IsVisible="{Binding IsThemeAmazonianNight}"
+                    IsVisible="{Binding IsThemeAmazonianNight, Mode=OneWay}"
                     Classes="MenuItemCheckMark">
                   <Image.Source>
                     <DrawingImage Drawing="{StaticResource IconCheck}"/>
@@ -154,14 +154,14 @@
           </MenuItem>
           <MenuItem
               x:Name="topMenuItemOptionsLanguage"
-              Header="{Binding i18n.TopMenuOptions.Language}">
+              Header="{Binding i18n.TopMenuOptions.Language, Mode=OneWay}">
             <MenuItem
                 x:Name="topMenuItemOptionsLanguagePortuguês"
-                Header="{Binding i18n.TopMenuLanguage.Português}"
-                Command="{Binding SelectLanguagePortuguesCmd}">
+                Header="{Binding i18n.TopMenuLanguage.Português, Mode=OneWay}"
+                Command="{Binding SelectLanguagePortuguesCmd, Mode=OneWay}">
               <MenuItem.Icon>
                 <Image
-                    IsVisible="{Binding IsLanguagePortuguese}"
+                    IsVisible="{Binding IsLanguagePortuguese, Mode=OneWay}"
                     Classes="MenuItemCheckMark">
                   <Image.Source>
                     <DrawingImage Drawing="{StaticResource IconCheck}"/>
@@ -171,11 +171,11 @@
             </MenuItem>
             <MenuItem
                 x:Name="topMenuItemOptionsLanguageEnglish"
-                Header="{Binding i18n.TopMenuLanguage.English}"
-                Command="{Binding SelectLanguageEnglishCmd}">
+                Header="{Binding i18n.TopMenuLanguage.English, Mode=OneWay}"
+                Command="{Binding SelectLanguageEnglishCmd, Mode=OneWay}">
               <MenuItem.Icon>
                 <Image
-                    IsVisible="{Binding IsLanguageEnglish}"
+                    IsVisible="{Binding IsLanguageEnglish, Mode=OneWay}"
                     Classes="MenuItemCheckMark">
                   <Image.Source>
                     <DrawingImage Drawing="{StaticResource IconCheck}"/>
@@ -185,11 +185,11 @@
             </MenuItem>
             <MenuItem
                 x:Name="topMenuItemOptionsLanguageRussian"
-                Header="{Binding i18n.TopMenuLanguage.Russian}"
-                Command="{Binding SelectLanguageRussianCmd}">
+                Header="{Binding i18n.TopMenuLanguage.Russian, Mode=OneWay}"
+                Command="{Binding SelectLanguageRussianCmd, Mode=OneWay}">
               <MenuItem.Icon>
                 <Image
-                    IsVisible="{Binding IsLanguageRussian}"
+                    IsVisible="{Binding IsLanguageRussian, Mode=OneWay}"
                     Classes="MenuItemCheckMark">
                   <Image.Source>
                     <DrawingImage Drawing="{StaticResource IconCheck}"/>
@@ -199,11 +199,11 @@
             </MenuItem>
             <MenuItem
                 x:Name="topMenuItemOptionsLanguageItalian"
-                Header="{Binding i18n.TopMenuLanguage.Italian}"
-                Command="{Binding SelectLanguageItalianCmd}">
+                Header="{Binding i18n.TopMenuLanguage.Italian, Mode=OneWay}"
+                Command="{Binding SelectLanguageItalianCmd, Mode=OneWay}">
               <MenuItem.Icon>
                 <Image
-                    IsVisible="{Binding IsLanguageItalian}"
+                    IsVisible="{Binding IsLanguageItalian, Mode=OneWay}"
                     Classes="MenuItemCheckMark">
                   <Image.Source>
                     <DrawingImage Drawing="{StaticResource IconCheck}"/>
@@ -213,11 +213,11 @@
             </MenuItem>
             <MenuItem
                 x:Name="topMenuItemOptionsLanguageSimplifiedChinese"
-                Header="{Binding i18n.TopMenuLanguage.SimplifiedChinese}"
-                Command="{Binding SelectLanguageSimplifiedChineseCmd}">
+                Header="{Binding i18n.TopMenuLanguage.SimplifiedChinese, Mode=OneWay}"
+                Command="{Binding SelectLanguageSimplifiedChineseCmd, Mode=OneWay}">
               <MenuItem.Icon>
                 <Image
-                    IsVisible="{Binding IsLanguageSimplifiedChinese}"
+                    IsVisible="{Binding IsLanguageSimplifiedChinese, Mode=OneWay}"
                     Classes="MenuItemCheckMark">
                   <Image.Source>
                     <DrawingImage Drawing="{StaticResource IconCheck}"/>
@@ -227,11 +227,11 @@
             </MenuItem>
             <MenuItem
                 x:Name="topMenuItemOptionsLanguageGerman"
-                Header="{Binding i18n.TopMenuLanguage.German}"
-                Command="{Binding SelectLanguageGermanCmd}">
+                Header="{Binding i18n.TopMenuLanguage.German, Mode=OneWay}"
+                Command="{Binding SelectLanguageGermanCmd, Mode=OneWay}">
               <MenuItem.Icon>
                 <Image
-                    IsVisible="{Binding IsLanguageGerman}"
+                    IsVisible="{Binding IsLanguageGerman, Mode=OneWay}"
                     Classes="MenuItemCheckMark">
                   <Image.Source>
                     <DrawingImage Drawing="{StaticResource IconCheck}"/>
@@ -241,11 +241,25 @@
             </MenuItem>
             <MenuItem
                 x:Name="topMenuItemOptionsLanguageSpanish"
-                Header="{Binding i18n.TopMenuLanguage.Spanish}"
-                Command="{Binding SelectLanguageSpanishCmd}">
+                Header="{Binding i18n.TopMenuLanguage.Spanish, Mode=OneWay}"
+                Command="{Binding SelectLanguageSpanishCmd, Mode=OneWay}">
               <MenuItem.Icon>
                 <Image
-                    IsVisible="{Binding IsLanguageSpanish}"
+                    IsVisible="{Binding IsLanguageSpanish, Mode=OneWay}"
+                    Classes="MenuItemCheckMark">
+                  <Image.Source>
+                    <DrawingImage Drawing="{StaticResource IconCheck}"/>
+                  </Image.Source>
+                </Image>
+              </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem
+                x:Name="topMenuItemOptionsLanguagePolish"
+                Header="{Binding i18n.TopMenuLanguage.Polish, Mode=OneWay}"
+                Command="{Binding SelectLanguagePolishCmd, Mode=OneWay}">
+              <MenuItem.Icon>
+                <Image
+                    IsVisible="{Binding IsLanguagePolish, Mode=OneWay}"
                     Classes="MenuItemCheckMark">
                   <Image.Source>
                     <DrawingImage Drawing="{StaticResource IconCheck}"/>
@@ -256,11 +270,11 @@
           </MenuItem>
           <MenuItem
               x:Name="topMenuItemOptionsEnableTlsVerification"
-              Header="{Binding i18n.TopMenuOptions.EnableTlsVerification}"
-              Command="{Binding ToggleSSLVerificationCmd}">
+              Header="{Binding i18n.TopMenuOptions.EnableTlsVerification, Mode=OneWay}"
+              Command="{Binding ToggleSSLVerificationCmd, Mode=OneWay}">
             <MenuItem.Icon>
               <Image
-                  IsVisible="{Binding !IsSslVerificationDisabled}"
+                  IsVisible="{Binding !IsSslVerificationDisabled, Mode=OneWay}"
                   Classes="MenuItemCheckMark">
                 <Image.Source>
                   <DrawingImage Drawing="{StaticResource IconCheck}"/>
@@ -270,11 +284,11 @@
           </MenuItem>
           <MenuItem
             x:Name="topMenuItemOptionsAutoCheckForUpdates"
-            Header="{Binding i18n.TopMenuOptions.AutoCheckForUpdates}"
-            Command="{Binding ToggleAutoCheckForUpdatesCmd}">
+            Header="{Binding i18n.TopMenuOptions.AutoCheckForUpdates, Mode=OneWay}"
+            Command="{Binding ToggleAutoCheckForUpdatesCmd, Mode=OneWay}">
             <MenuItem.Icon>
               <Image
-                IsVisible="{Binding AutoCheckForUpdatesEnabled}"
+                IsVisible="{Binding AutoCheckForUpdatesEnabled, Mode=OneWay}"
                 Classes="MenuItemCheckMark">
                 <Image.Source>
                   <DrawingImage Drawing="{StaticResource IconCheck}"/>
@@ -285,28 +299,31 @@
         </MenuItem>
         <MenuItem
             x:Name="topMenuItemHelp"
-            Header="{Binding i18n.TopMenu.Help}">
+            Header="{Binding i18n.TopMenu.Help, Mode=OneWay}">
           <MenuItem
-            Header="{Binding i18n.TopMenuHelp.ViewKeyboardShortcuts}"
-            Command="{Binding HotKeys.ShowHelpCmd}"/>
+            Header="{Binding i18n.TopMenuHelp.ViewKeyboardShortcuts, Mode=OneWay}"
+            Command="{Binding HotKeys.ShowHelpCmd, Mode=OneWay}"/>
           <MenuItem
-            Header="{Binding i18n.TopMenuHelp.OpenDocsWebsite}"
-            Command="{Binding OpenDocsInWebBrowserCmd}"/>
+            Header="{Binding i18n.TopMenuHelp.OpenDocsWebsite, Mode=OneWay}"
+            Command="{Binding OpenDocsInWebBrowserCmd, Mode=OneWay}"/>
+          <MenuItem
+            Header="{Binding i18n.TopMenuHelp.MakeADonation, Mode=OneWay}"
+            Command="{Binding OpenDonationsPageInWebBrowserCmd, Mode=OneWay}"/>
           <Separator/>
           <MenuItem
             Header="{Binding VersionName}"
             IsEnabled="False"/>
           <MenuItem
-            Header="{Binding i18n.TopMenuHelp.RunUITests}"
-            IsVisible="{Binding IsRunUITestsVisible}"
-            Command="{Binding RunUITestsCmd}"/>
+            Header="{Binding i18n.TopMenuHelp.RunUITests, Mode=OneWay}"
+            IsVisible="{Binding IsRunUITestsVisible, Mode=OneWay}"
+            Command="{Binding RunUITestsCmd, Mode=OneWay}"/>
         </MenuItem>
         <MenuItem
-            Header="{Binding i18n.TopMenu.Saved}"
+            Header="{Binding i18n.TopMenu.Saved, Mode=OneWay}"
             HorizontalAlignment="Right"
-            IsVisible="{Binding IsSavedLabelVisible}"/>
+            IsVisible="{Binding IsSavedLabelVisible, Mode=OneWay}"/>
         <!--MenuItem
-        Header="{Binding i18n.TopMenu.Contribute}"/-->
+        Header="{Binding i18n.TopMenu.Contribute, Mode=OneWay}"/-->
       </Menu>
 
       <Grid>
@@ -322,7 +339,7 @@
             x:Name="mainWindowCollectionsGroup"
             Grid.Column="0"
             Background="{DynamicResource MainWindowSidebarBrush}"
-            DataContext="{Binding CollectionsGroupViewDataCtx}"/>
+            DataContext="{Binding CollectionsGroupViewDataCtx, Mode=OneWay}"/>
 
         <GridSplitter
             Grid.Column="1"
@@ -341,80 +358,80 @@
                 x:Name="welcomeView"
                 VerticalAlignment="Stretch"
                 HorizontalAlignment="Stretch"
-                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).WelcomeView.Visible}"
-                DataContext="{Binding WelcomeView.VM}"/>
+                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).WelcomeView.Visible, Mode=OneWay}"
+                DataContext="{Binding WelcomeView.VM, Mode=OneWay}"/>
             <v:CollectionView
                 x:Name="collectionView"
                 VerticalAlignment="Stretch"
                 HorizontalAlignment="Stretch"
-                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).CollectionView.Visible}"
-                DataContext="{Binding CollectionView.VM}"/>
+                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).CollectionView.Visible, Mode=OneWay}"
+                DataContext="{Binding CollectionView.VM, Mode=OneWay}"/>
             <v:ExportCollectionView
                 x:Name="exportCollectionView"
                 VerticalAlignment="Stretch"
                 HorizontalAlignment="Stretch"
-                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).ExportCollectionView.Visible}"
-                DataContext="{Binding ExportCollectionView.VM}"/>
+                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).ExportCollectionView.Visible, Mode=OneWay}"
+                DataContext="{Binding ExportCollectionView.VM, Mode=OneWay}"/>
             <v:CollectionVariablesView
                 x:Name="collectionVariablesView"
                 VerticalAlignment="Stretch"
                 HorizontalAlignment="Stretch"
-                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).CollectionVariablesView.Visible}"
-                DataContext="{Binding CollectionVariablesView.VM}"/>
+                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).CollectionVariablesView.Visible, Mode=OneWay}"
+                DataContext="{Binding CollectionVariablesView.VM, Mode=OneWay}"/>
             <v:CollectionScopedAuthView
                 x:Name="collectionScopedAuthView"
                 VerticalAlignment="Stretch"
                 HorizontalAlignment="Stretch"
-                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).CollectionScopedAuthView.Visible}"
-                DataContext="{Binding CollectionScopedAuthView.VM}"/>
+                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).CollectionScopedAuthView.Visible, Mode=OneWay}"
+                DataContext="{Binding CollectionScopedAuthView.VM, Mode=OneWay}"/>
             <v:CollectionScopedRequestHeadersView
                 x:Name="collectionScopedReqHeadersView"
                 VerticalAlignment="Stretch"
                 HorizontalAlignment="Stretch"
-                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).CollectionScopedRequestHeadersView.Visible}"
-                DataContext="{Binding CollectionScopedRequestHeadersView.VM}"/>
+                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).CollectionScopedRequestHeadersView.Visible, Mode=OneWay}"
+                DataContext="{Binding CollectionScopedRequestHeadersView.VM, Mode=OneWay}"/>
             <v:EnvironmentView
                 x:Name="environmentView"
                 VerticalAlignment="Stretch"
                 HorizontalAlignment="Stretch"
-                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).EnvironmentView.Visible}"
-                DataContext="{Binding EnvironmentView.VM}"/>
+                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).EnvironmentView.Visible, Mode=OneWay}"
+                DataContext="{Binding EnvironmentView.VM, Mode=OneWay}"/>
             <v:ExportEnvironmentView
                 x:Name="exportEnvironmentView"
                 VerticalAlignment="Stretch"
                 HorizontalAlignment="Stretch"
-                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).ExportEnvironmentView.Visible}"
-                DataContext="{Binding ExportEnvironmentView.VM}"/>
+                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).ExportEnvironmentView.Visible, Mode=OneWay}"
+                DataContext="{Binding ExportEnvironmentView.VM, Mode=OneWay}"/>
             <v:CollectionFolderView
                 x:Name="collectionFolderView"
                 VerticalAlignment="Stretch"
                 HorizontalAlignment="Stretch"
-                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).CollectionFolderView.Visible}"
-                DataContext="{Binding CollectionFolderView.VM}"/>
+                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).CollectionFolderView.Visible, Mode=OneWay}"
+                DataContext="{Binding CollectionFolderView.VM, Mode=OneWay}"/>
             <v:HttpRequestView
                 x:Name="httpReqView"
                 VerticalAlignment="Stretch"
                 HorizontalAlignment="Stretch"
-                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).HttpRequestView.Visible}"
-                DataContext="{Binding HttpRequestView.VM}"/>
+                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).HttpRequestView.Visible, Mode=OneWay}"
+                DataContext="{Binding HttpRequestView.VM, Mode=OneWay}"/>
             <v:WebSocketConnectionView
                 x:Name="wsConnView"
                 VerticalAlignment="Stretch"
                 HorizontalAlignment="Stretch"
-                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).WebSocketConnectionView.Visible}"
-                DataContext="{Binding WebSocketConnectionView.VM}"/>
+                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).WebSocketConnectionView.Visible, Mode=OneWay}"
+                DataContext="{Binding WebSocketConnectionView.VM, Mode=OneWay}"/>
             <v:WebSocketClientMessageView
                 x:Name="wsClientMsgView"
                 VerticalAlignment="Stretch"
                 HorizontalAlignment="Stretch"
-                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).WebSocketClientMessageView.Visible}"
-                DataContext="{Binding WebSocketClientMessageView.VM}"/>
+                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).WebSocketClientMessageView.Visible, Mode=OneWay}"
+                DataContext="{Binding WebSocketClientMessageView.VM, Mode=OneWay}"/>
             <v:HttpRepeaterView
                 x:Name="httpRepView"
                 VerticalAlignment="Stretch"
                 HorizontalAlignment="Stretch"
-                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).HttpRepeaterView.Visible}"
-                DataContext="{Binding HttpRepeaterView.VM}"/>
+                IsVisible="{Binding #mainWindow.((vm:MainWindowViewModel)DataContext).HttpRepeaterView.Visible, Mode=OneWay}"
+                DataContext="{Binding HttpRepeaterView.VM, Mode=OneWay}"/>
           </Grid>
         </Panel>
       </Grid>

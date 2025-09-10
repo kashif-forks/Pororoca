@@ -45,7 +45,7 @@
           x:Name="etbName"
           Margin="24,0,24,0"
           HorizontalAlignment="Stretch"
-          DataContext="{Binding NameEditableVm}"/>
+          DataContext="{Binding NameEditableVm, Mode=OneWay}"/>
 
       <Grid
           ShowGridLines="False"
@@ -65,27 +65,27 @@
               x:Name="tbUrl"
               Height="40"
               Text="{Binding Url}"
-              Watermark="{Binding i18n.WebSocketConnection.UrlWatermark}"
+              Watermark="{Binding i18n.WebSocketConnection.UrlWatermark, Mode=OneWay}"
               VerticalContentAlignment="Center"
-              ToolTip.Tip="{Binding ResolvedUrlToolTip}"
+              ToolTip.Tip="{Binding ResolvedUrlToolTip, Mode=OneWay}"
               Classes="SingleLine"
               PointerEntered="OnUrlPointerEnter"
-              Classes.HasValidationProblem="{Binding HasUrlValidationProblem}"/>
+              Classes.HasValidationProblem="{Binding HasUrlValidationProblem, Mode=OneWay}"/>
 
           <TextBlock
               Name="tbErrorMsg"
               Margin="12,6,12,0"
               Classes="ErrorMessage"
-              Text="{Binding InvalidConnectionError}"
-              IsVisible="{Binding IsInvalidConnectionErrorVisible}"/>
+              Text="{Binding InvalidConnectionError, Mode=OneWay}"
+              IsVisible="{Binding IsInvalidConnectionErrorVisible, Mode=OneWay}"/>
 
           <TextBlock
               Name="tbIsWsConnected"
               Margin="12,6,12,0"
               FontSize="14"
               Foreground="{DynamicResource WebSocketConnectedBrush}"
-              Text="{Binding i18n.WebSocketConnection.Connected}"
-              IsVisible="{Binding IsConnected}"/>
+              Text="{Binding i18n.WebSocketConnection.Connected, Mode=OneWay}"
+              IsVisible="{Binding IsConnected, Mode=OneWay}"/>
 
         </StackPanel>
 
@@ -100,7 +100,7 @@
             VerticalAlignment="Stretch"
             SelectedIndex="{Binding HttpVersionSelectedIndex, Mode=TwoWay}"
             ItemsSource="{Binding HttpVersionSelectionOptions}"
-            Classes.HasValidationProblem="{Binding HasHttpVersionValidationProblem}"/>
+            Classes.HasValidationProblem="{Binding HasHttpVersionValidationProblem, Mode=OneWay}"/>
 
         <Button
             Name="btConnectDisconnectCancel"
@@ -112,10 +112,10 @@
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center"
             Click="ConnectDisconnectCancel"
-            Content="{Binding ConnectDisconnectCancelButtonText}"
-            ToolTip.Tip="{Binding ConnectDisconnectCancelButtonToolTip}"
-            Classes.Primary="{Binding !IsConnected}"
-            Classes.PrimaryInverted="{Binding IsConnected}"/>
+            Content="{Binding ConnectDisconnectCancelButtonText, Mode=OneWay}"
+            ToolTip.Tip="{Binding ConnectDisconnectCancelButtonToolTip, Mode=OneWay}"
+            Classes.Primary="{Binding !IsConnected, Mode=OneWay}"
+            Classes.PrimaryInverted="{Binding IsConnected, Mode=OneWay}"/>
 
       </Grid>
 
@@ -129,7 +129,7 @@
             IsIndeterminate="True"
             VerticalAlignment="Stretch"
             HorizontalAlignment="Stretch"
-            IsVisible="{Binding IsConnectingOrDisconnecting}"/>
+            IsVisible="{Binding IsConnectingOrDisconnecting, Mode=OneWay}"/>
       </Grid>
 
       <Separator
@@ -156,7 +156,7 @@
             Grid.Row="0"
             Margin="12,28,12,0"
             Classes="SectionTitle"
-            Text="{Binding i18n.WebSocketConnection.SectionTitle}"/>
+            Text="{Binding i18n.WebSocketConnection.SectionTitle, Mode=OneWay}"/>
         <TabControl
             Name="tabControlConnectionRequest"
             Grid.Column="0"
@@ -169,7 +169,7 @@
             <TabItem.Header>
               <TextBlock
                   Classes="TabItemHeader"
-                  Text="{Binding i18n.WebSocketConnection.ConnectionRequestOptions}"/>
+                  Text="{Binding i18n.WebSocketConnection.ConnectionRequestOptions, Mode=OneWay}"/>
             </TabItem.Header>
 
             <Grid Margin="0,12,0,0">
@@ -192,13 +192,13 @@
                   SelectedIndex="{Binding ConnectionOptionSelectedIndex, Mode=TwoWay}">
                 <ComboBoxItem
                     x:Name="cbiWsScrReqOptionHeaders"
-                    Content="{Binding i18n.WebSocketConnection.OptionHeaders}"/>
+                    Content="{Binding i18n.WebSocketConnection.OptionHeaders, Mode=OneWay}"/>
                 <ComboBoxItem
                     x:Name="cbiWsScrReqOptionSubprotocols"
-                    Content="{Binding i18n.WebSocketConnection.OptionSubprotocols}"/>
+                    Content="{Binding i18n.WebSocketConnection.OptionSubprotocols, Mode=OneWay}"/>
                 <ComboBoxItem
                     x:Name="cbiWsScrReqOptionCompression"
-                    Content="{Binding i18n.WebSocketConnection.OptionCompression}"/>
+                    Content="{Binding i18n.WebSocketConnection.OptionCompression, Mode=OneWay}"/>
               </ComboBox>
               <!-- CONNECTION REQUEST HEADERS -->
               <Grid
@@ -222,8 +222,8 @@
                     Padding="2"
                     Margin="12,0,0,0"
                     Classes="Secondary"
-                    ToolTip.Tip="{Binding i18n.WebSocketConnection.ConnectionRequestHeaderAdd}"
-                    Command="{Binding RequestHeadersTableVm.AddNewCmd}">
+                    ToolTip.Tip="{Binding i18n.WebSocketConnection.ConnectionRequestHeaderAdd, Mode=OneWay}"
+                    Command="{Binding RequestHeadersTableVm.AddNewCmd, Mode=OneWay}">
                   <Button.Content>
                     <Image
                         VerticalAlignment="Center"
@@ -241,7 +241,7 @@
                     Grid.Column="0"
                     Grid.Row="1"
                     Margin="0,12,0,0"
-                    DataContext="{Binding RequestHeadersTableVm}"/>
+                    DataContext="{Binding RequestHeadersTableVm, Mode=OneWay}"/>
               </Grid>
               <!-- CONNECTION REQUEST SUBPROTOCOLS -->
               <Grid
@@ -271,8 +271,8 @@
                     Padding="2"
                     Margin="12,0,0,0"
                     Classes="Secondary"
-                    ToolTip.Tip="{Binding i18n.WebSocketConnection.ConnectionRequestSubprotocolAdd}"
-                    Command="{Binding SubprotocolsTableVm.AddNewCmd}">
+                    ToolTip.Tip="{Binding i18n.WebSocketConnection.ConnectionRequestSubprotocolAdd, Mode=OneWay}"
+                    Command="{Binding SubprotocolsTableVm.AddNewCmd, Mode=OneWay}">
                   <Button.Content>
                     <Image
                         VerticalAlignment="Center"
@@ -298,30 +298,30 @@
                     HeadersVisibility="All"
                     Classes="DragAndDrop SubprotocolsDragAndDrop">
                   <!--DataGrid.KeyBindings>
-                      <KeyBinding Command="{Binding SubprotocolsTableVm.CutCmd}" Gesture="Ctrl+X" />
-                      <KeyBinding Command="{Binding SubprotocolsTableVm.CopyCmd}" Gesture="Ctrl+C" />
-                      <KeyBinding Command="{Binding SubprotocolsTableVm.PasteCmd}" Gesture="Ctrl+V" />
-                      <KeyBinding Command="{Binding SubprotocolsTableVm.DuplicateCmd}" Gesture="Ctrl+D" />
-                      <KeyBinding Command="{Binding SubprotocolsTableVm.DeleteCmd}" Gesture="Delete" />
+                      <KeyBinding Command="{Binding SubprotocolsTableVm.CutCmd, Mode=OneWay}" Gesture="Ctrl+X" />
+                      <KeyBinding Command="{Binding SubprotocolsTableVm.CopyCmd, Mode=OneWay}" Gesture="Ctrl+C" />
+                      <KeyBinding Command="{Binding SubprotocolsTableVm.PasteCmd, Mode=OneWay}" Gesture="Ctrl+V" />
+                      <KeyBinding Command="{Binding SubprotocolsTableVm.DuplicateCmd, Mode=OneWay}" Gesture="Ctrl+D" />
+                      <KeyBinding Command="{Binding SubprotocolsTableVm.DeleteCmd, Mode=OneWay}" Gesture="Delete" />
                     </DataGrid.KeyBindings-->
                   <DataGrid.ContextMenu>
                     <ContextMenu>
                       <MenuItem
-                          Header="{Binding i18n.ContextMenu.Cut}"
-                          Command="{Binding SubprotocolsTableVm.CutCmd}"
+                          Header="{Binding i18n.ContextMenu.Cut, Mode=OneWay}"
+                          Command="{Binding SubprotocolsTableVm.CutCmd, Mode=OneWay}"
                           InputGesture="Ctrl+X"/>
                       <MenuItem
-                          Header="{Binding i18n.ContextMenu.Copy}"
-                          Command="{Binding SubprotocolsTableVm.CopyCmd}"
+                          Header="{Binding i18n.ContextMenu.Copy, Mode=OneWay}"
+                          Command="{Binding SubprotocolsTableVm.CopyCmd, Mode=OneWay}"
                           InputGesture="Ctrl+C"/>
                       <MenuItem
-                          Header="{Binding i18n.ContextMenu.Paste}"
-                          Command="{Binding SubprotocolsTableVm.PasteCmd}"
+                          Header="{Binding i18n.ContextMenu.Paste, Mode=OneWay}"
+                          Command="{Binding SubprotocolsTableVm.PasteCmd, Mode=OneWay}"
                           InputGesture="Ctrl+V"
-                          IsEnabled="{Binding SubprotocolsTableVm.InnerClipboardArea.CanPaste}"/>
+                          IsEnabled="{Binding SubprotocolsTableVm.InnerClipboardArea.CanPaste, Mode=OneWay}"/>
                       <MenuItem
-                          Header="{Binding i18n.ContextMenu.Delete}"
-                          Command="{Binding SubprotocolsTableVm.DeleteCmd}"
+                          Header="{Binding i18n.ContextMenu.Delete, Mode=OneWay}"
+                          Command="{Binding SubprotocolsTableVm.DeleteCmd, Mode=OneWay}"
                           InputGesture="Delete"/>
                     </ContextMenu>
                   </DataGrid.ContextMenu>
@@ -330,14 +330,14 @@
                         Width="0.34*"
                         Binding="{Binding Enabled}">
                       <DataGridCheckBoxColumn.Header>
-                        <TextBlock Text="{Binding i18n.WebSocketConnection.ConnectionRequestSubprotocolEnabled}"/>
+                        <TextBlock Text="{Binding i18n.WebSocketConnection.ConnectionRequestSubprotocolEnabled, Mode=OneWay}"/>
                       </DataGridCheckBoxColumn.Header>
                     </DataGridCheckBoxColumn>
                     <DataGridTextColumn
                         Width="0.66*"
                         Binding="{Binding Key}">
                       <DataGridTextColumn.Header>
-                        <TextBlock Text="{Binding i18n.WebSocketConnection.ConnectionRequestSubprotocolName}"/>
+                        <TextBlock Text="{Binding i18n.WebSocketConnection.ConnectionRequestSubprotocolName, Mode=OneWay}"/>
                       </DataGridTextColumn.Header>
                     </DataGridTextColumn>
                     <DataGridTemplateColumn
@@ -346,7 +346,7 @@
                       <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                           <Button
-                              Command="{Binding RemoveParamCmd}"
+                              Command="{Binding RemoveParamCmd, Mode=OneWay}"
                               VerticalAlignment="Center"
                               HorizontalAlignment="Center"
                               HorizontalContentAlignment="Center"
@@ -371,15 +371,15 @@
                               ConverterParameter=Compression}">
                 <CheckBox
                     x:Name="cbWsConnReqCompressionEnable"
-                    Content="{Binding i18n.WebSocketConnection.EnableCompression}"
+                    Content="{Binding i18n.WebSocketConnection.EnableCompression, Mode=OneWay}"
                     IsChecked="{Binding EnableCompression}"/>
 
                 <StackPanel
                     x:Name="spWsConnReqCompressionOptions"
-                    IsVisible="{Binding EnableCompression}">
+                    IsVisible="{Binding EnableCompression, Mode=OneWay}">
                   <CheckBox
                       Margin="0,12,0,0"
-                      Content="{Binding i18n.WebSocketConnection.CompressionClientContextTakeover}"
+                      Content="{Binding i18n.WebSocketConnection.CompressionClientContextTakeover, Mode=OneWay}"
                       IsChecked="{Binding CompressionClientContextTakeoverEnabled}"/>
 
                   <StackPanel
@@ -391,7 +391,7 @@
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Center"
                         Margin="0,0,6,0"
-                        Text="{Binding i18n.WebSocketConnection.CompressionClientMaxWindowBits}"/>
+                        Text="{Binding i18n.WebSocketConnection.CompressionClientMaxWindowBits, Mode=OneWay}"/>
                     <NumericUpDown
                         Margin="6,0,0,0"
                         VerticalAlignment="Center"
@@ -403,7 +403,7 @@
 
                   <CheckBox
                       Margin="0,12,0,0"
-                      Content="{Binding i18n.WebSocketConnection.CompressionServerContextTakeover}"
+                      Content="{Binding i18n.WebSocketConnection.CompressionServerContextTakeover, Mode=OneWay}"
                       IsChecked="{Binding CompressionServerContextTakeoverEnabled}"/>
 
                   <StackPanel
@@ -415,7 +415,7 @@
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Center"
                         Margin="0,0,6,0"
-                        Text="{Binding i18n.WebSocketConnection.CompressionServerMaxWindowBits}"/>
+                        Text="{Binding i18n.WebSocketConnection.CompressionServerMaxWindowBits, Mode=OneWay}"/>
                     <NumericUpDown
                         Margin="6,0,0,0"
                         VerticalAlignment="Center"
@@ -434,28 +434,28 @@
             <TabItem.Header>
               <TextBlock
                   Classes="TabItemHeader"
-                  Text="{Binding i18n.WebSocketConnection.CustomAuth}"/>
+                  Text="{Binding i18n.WebSocketConnection.CustomAuth, Mode=OneWay}"/>
             </TabItem.Header>
-            <v:RequestAuthView DataContext="{Binding RequestAuthDataCtx}"/>
+            <v:RequestAuthView DataContext="{Binding RequestAuthDataCtx, Mode=OneWay}"/>
           </TabItem>
           <!-- CONNECTION RESPONSE -->
           <TabItem Name="tabItemConnectionResponse">
             <TabItem.Header>
               <TextBlock
                   Classes="TabItemHeader"
-                  Text="{Binding i18n.WebSocketConnection.ConnectionResponse}"/>
+                  Text="{Binding i18n.WebSocketConnection.ConnectionResponse, Mode=OneWay}"/>
             </TabItem.Header>
             <Grid>
               <Grid
                   RowDefinitions="*, Auto"
-                  IsVisible="{Binding !WasConnectionSuccessful}">
+                  IsVisible="{Binding !WasConnectionSuccessful, Mode=OneWay}">
                 <!-- AcceptsReturn="True" allows for horizontal scrollbar -->
                 <TextBox
                     Name="tbConnectionException"
                     Grid.Column="0"
                     Grid.Row="0"
                     Margin="0,12,0,12"
-                    Watermark="{Binding i18n.WebSocketConnection.ConnectionExceptionWatermark}"
+                    Watermark="{Binding i18n.WebSocketConnection.ConnectionExceptionWatermark, Mode=OneWay}"
                     TextWrapping="NoWrap"
                     IsReadOnly="True"
                     HorizontalAlignment="Stretch"
@@ -465,15 +465,15 @@
                     Name="btDisableTlsVerification"
                     Grid.Column="0"
                     Grid.Row="1"
-                    Content="{Binding i18n.HttpResponse.DisableTlsVerification}"
+                    Content="{Binding i18n.HttpResponse.DisableTlsVerification, Mode=OneWay}"
                     Margin="0,0,0,12"
-                    IsVisible="{Binding IsDisableTlsVerificationVisible}"
-                    Command="{Binding DisableTlsVerificationCmd}"
+                    IsVisible="{Binding IsDisableTlsVerificationVisible, Mode=OneWay}"
+                    Command="{Binding DisableTlsVerificationCmd, Mode=OneWay}"
                     Classes="Primary"/>
               </Grid>
               <Grid
                   RowDefinitions="Auto, *"
-                  IsVisible="{Binding WasConnectionSuccessful}">
+                  IsVisible="{Binding WasConnectionSuccessful, Mode=OneWay}">
                 <TextBlock
                     Name="tbWebsocketResStatusCodeAndTime"
                     Grid.Column="0"
@@ -484,13 +484,13 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     TextWrapping="Wrap"
-                    Text="{Binding ResponseStatusCodeElapsedTimeTitle}"/>
+                    Text="{Binding ResponseStatusCodeElapsedTimeTitle, Mode=OneWay}"/>
                 <controls:ResponseHeadersTableView
                     x:Name="rhtvWebsocketResHeaders"
                     Grid.Column="0"
                     Grid.Row="1"
                     Margin="-12,12,-12,12"
-                    DataContext="{Binding ConnectionResponseHeadersTableVm}"/>
+                    DataContext="{Binding ConnectionResponseHeadersTableVm, Mode=OneWay}"/>
               </Grid>
             </Grid>
           </TabItem>
@@ -519,7 +519,7 @@
             Grid.Column="0"
             Grid.Row="0"
             Classes="SectionTitle"
-            Text="{Binding i18n.WebSocketExchangedMessages.SectionTitle}"/>
+            Text="{Binding i18n.WebSocketExchangedMessages.SectionTitle, Mode=OneWay}"/>
 
           <Button
             Grid.Column="1"
@@ -527,9 +527,9 @@
             x:Name="btSaveAllMessages"
             Width="36"
             Margin="12,0,0,0"
-            Command="{Binding SaveAllExchangedMessagesToFilesCmd}"
-            IsVisible="{Binding IsSaveAllExchangedMessagesToFilesVisible}"
-            ToolTip.Tip="{Binding i18n.WebSocketExchangedMessages.SaveAllToFiles}"
+            Command="{Binding SaveAllExchangedMessagesToFilesCmd, Mode=OneWay}"
+            IsVisible="{Binding IsSaveAllExchangedMessagesToFilesVisible, Mode=OneWay}"
+            ToolTip.Tip="{Binding i18n.WebSocketExchangedMessages.SaveAllToFiles, Mode=OneWay}"
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center"
             HorizontalAlignment="Left"
@@ -577,9 +577,9 @@
                   MinHeight="40">
                 <TextBlock
                     HorizontalAlignment="Left"
-                    Text="{Binding OriginDescription}"
-                    Classes.WebSocketMessageFromServerPrimary="{Binding IsFromServer}"
-                    Classes.WebSocketMessageFromClientPrimary="{Binding IsFromClient}"
+                    Text="{Binding OriginDescription, Mode=OneWay}"
+                    Classes.WebSocketMessageFromServerPrimary="{Binding IsFromServer, Mode=OneWay}"
+                    Classes.WebSocketMessageFromClientPrimary="{Binding IsFromClient, Mode=OneWay}"
                     FontSize="14"
                     FontWeight="Regular"
                     TextAlignment="Left"
@@ -589,9 +589,9 @@
                     HorizontalAlignment="Left"
                     Margin="4,4,4,0"
                     MinWidth="160"
-                    Text="{Binding MessageSizeDescription}"
-                    Classes.WebSocketMessageFromServerSecondary="{Binding IsFromServer}"
-                    Classes.WebSocketMessageFromClientSecondary="{Binding IsFromClient}"
+                    Text="{Binding MessageSizeDescription, Mode=OneWay}"
+                    Classes.WebSocketMessageFromServerSecondary="{Binding IsFromServer, Mode=OneWay}"
+                    Classes.WebSocketMessageFromClientSecondary="{Binding IsFromClient, Mode=OneWay}"
                     FontFamily="{StaticResource CodeFontFamily}"
                     FontSize="12"
                     FontWeight="Light"
@@ -601,9 +601,9 @@
                 <TextBlock
                     HorizontalAlignment="Stretch"
                     Margin="4,4,4,2"
-                    Text="{Binding InstantDescription}"
-                    Classes.WebSocketMessageFromServerSecondary="{Binding IsFromServer}"
-                    Classes.WebSocketMessageFromClientSecondary="{Binding IsFromClient}"
+                    Text="{Binding InstantDescription, Mode=OneWay}"
+                    Classes.WebSocketMessageFromServerSecondary="{Binding IsFromServer, Mode=OneWay}"
+                    Classes.WebSocketMessageFromClientSecondary="{Binding IsFromClient, Mode=OneWay}"
                     FontSize="12"
                     FontWeight="Light"
                     TextAlignment="Left"
@@ -633,8 +633,8 @@
                 Padding="2"
                 Margin="0,0,12,0"
                 Classes="Secondary"
-                ToolTip.Tip="{Binding i18n.WebSocketClientMessage.NewMessage}"
-                Command="{Binding AddNewWebSocketClientMessageCmd}">
+                ToolTip.Tip="{Binding i18n.WebSocketClientMessage.NewMessage, Mode=OneWay}"
+                Command="{Binding AddNewWebSocketClientMessageCmd, Mode=OneWay}">
               <Button.Content>
                 <Image
                     VerticalAlignment="Center"
@@ -658,7 +658,7 @@
                 SelectedIndex="{Binding MessageToSendSelectedIndex, Mode=TwoWay}">
               <ComboBox.ItemTemplate>
                 <DataTemplate>
-                  <TextBlock Text="{Binding Name}"/>
+                  <TextBlock Text="{Binding Name, Mode=OneWay}"/>
                 </DataTemplate>
               </ComboBox.ItemTemplate>
             </ComboBox>
@@ -672,8 +672,8 @@
                 Margin="12,0,0,0"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
-                Command="{Binding SendMessageCmd}"
-                Content="{Binding i18n.WebSocketExchangedMessages.SendMessage}"
+                Command="{Binding SendMessageCmd, Mode=OneWay}"
+                Content="{Binding i18n.WebSocketExchangedMessages.SendMessage, Mode=OneWay}"
                 Classes="Primary"/>
 
           </Grid>
@@ -682,14 +682,14 @@
               IsIndeterminate="True"
               Margin="0,12,0,0"
               HorizontalAlignment="Stretch"
-              IsVisible="{Binding IsSendingAMessage}"/>
+              IsVisible="{Binding IsSendingAMessage, Mode=OneWay}"/>
 
           <TextBlock
               Name="tbMessageToSendError"
               Margin="12,6,12,0"
               Classes="ErrorMessage"
-              Text="{Binding InvalidClientMessageError}"
-              IsVisible="{Binding IsInvalidClientMessageErrorVisible}"/>
+              Text="{Binding InvalidClientMessageError, Mode=OneWay}"
+              IsVisible="{Binding IsInvalidClientMessageErrorVisible, Mode=OneWay}"/>
         </StackPanel>
       </Grid>
       <Rectangle
@@ -710,7 +710,7 @@
             Grid.Row="0"
             Margin="12,28,12,0"
             Classes="SectionTitle"
-            Text="{Binding i18n.WebSocketExchangedMessageDetail.SectionTitle}"/>
+            Text="{Binding i18n.WebSocketExchangedMessageDetail.SectionTitle, Mode=OneWay}"/>
 
         <TextBox
             Name="tbMessageDetailType"
@@ -719,7 +719,7 @@
             Margin="12,24,12,6"
             Height="40"
             Text="{Binding SelectedExchangedMessageType}"
-            Watermark="{Binding i18n.WebSocketExchangedMessageDetail.MessageTypeWatermark}"
+            Watermark="{Binding i18n.WebSocketExchangedMessageDetail.MessageTypeWatermark, Mode=OneWay}"
             Classes="SingleLine"
             VerticalContentAlignment="Center"/>
 
@@ -737,12 +737,12 @@
         <Button
             Grid.Column="0"
             Grid.Row="3"
-            Content="{Binding i18n.WebSocketExchangedMessageDetail.SaveToFile}"
-            ToolTip.Tip="{Binding i18n.WebSocketExchangedMessageDetail.SaveToFileToolTip}"
+            Content="{Binding i18n.WebSocketExchangedMessageDetail.SaveToFile, Mode=OneWay}"
+            ToolTip.Tip="{Binding i18n.WebSocketExchangedMessageDetail.SaveToFileToolTip, Mode=OneWay}"
             ToolTip.Placement="Top"
             Margin="12,0,12,24"
-            IsVisible="{Binding IsSaveSelectedExchangedMessageToFileVisible}"
-            Command="{Binding SaveSelectedExchangedMessageToFileCmd}"
+            IsVisible="{Binding IsSaveSelectedExchangedMessageToFileVisible, Mode=OneWay}"
+            Command="{Binding SaveSelectedExchangedMessageToFileCmd, Mode=OneWay}"
             Classes="Secondary"/>
       </Grid>
     </Grid>

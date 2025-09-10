@@ -269,11 +269,13 @@
   "TopMenuFile/NewCollection",
   "TopMenuFile/SaveAll",
   "TopMenuHelp/OpenDocsWebsite",
+  "TopMenuHelp/MakeADonation",
   "TopMenuHelp/RunUITests",
   "TopMenuHelp/ViewKeyboardShortcuts",
   "TopMenuLanguage/English",
   "TopMenuLanguage/German",
   "TopMenuLanguage/Italian",
+  "TopMenuLanguage/Polish",
   "TopMenuLanguage/Português",
   "TopMenuLanguage/Russian",
   "TopMenuLanguage/SimplifiedChinese",
@@ -362,6 +364,7 @@
   "Welcome/ImportOpenAPI",
   "Welcome/NewCollection",
   "Welcome/OpenDocsWebsite",
+  "Welcome/SupportUs",
   "Welcome/Title",
   "Welcome/VisitGitHubRepo"
 ]

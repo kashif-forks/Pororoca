@@ -269,6 +269,7 @@
     "TopMenuFile/NewCollection": "Nuova collezione",
     "TopMenuFile/SaveAll": "Salva tutto",
     "TopMenuHelp/OpenDocsWebsite": "Vai alla documentazione",
+	"TopMenuHelp/MakeADonation": "Fai una donazione!",
     "TopMenuHelp/RunUITests": "Esegui test UI (Ctrl+F12)",
     "TopMenuHelp/ViewKeyboardShortcuts": "Visualizza scorciatoie da tastiera",
     "TopMenuLanguage/English": "Inglese",
@@ -278,6 +279,7 @@
     "TopMenuLanguage/German": "Tedesco",
     "TopMenuLanguage/SimplifiedChinese": "Cinese semplificato",
     "TopMenuLanguage/Spanish": "Spagnolo",
+    "TopMenuLanguage/Polish": "Polacco",
     "TopMenuOptions/AutoCheckForUpdates": "Controllo automatico degli aggiornamenti",
     "TopMenuOptions/EnableTlsVerification": "Abilita la verifica TLS",
     "TopMenuOptions/Language": "Lingua",
@@ -362,6 +364,7 @@
     "Welcome/ImportOpenAPI": "Importa OpenAPI…",
     "Welcome/NewCollection": "Nuova collezione",
     "Welcome/OpenDocsWebsite": "Vai alla documentazione",
+	"Welcome/SupportUs": "Sostienici!",
     "Welcome/Title": "Benvenuto(a)!",
     "Welcome/VisitGitHubRepo": "Visita il GitHub repo"
 }

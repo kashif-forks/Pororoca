@@ -97,6 +97,10 @@ public sealed class MainWindowViewModel : ViewModelBase, ICollectionOrganization
     public bool IsLanguageSpanish { get; set; }
     public ReactiveCommand<Unit, Unit> SelectLanguageSpanishCmd { get; }
 
+    [Reactive]
+    public bool IsLanguagePolish { get; set; }
+    public ReactiveCommand<Unit, Unit> SelectLanguagePolishCmd { get; }
+
     #endregion
 
     #region THEMES
@@ -188,10 +192,13 @@ public sealed class MainWindowViewModel : ViewModelBase, ICollectionOrganization
 
     private const string GitHubRepoUrl = "https://github.com/alexandrehtrb/Pororoca";
     private const string DocsWebSiteUrl = "https://pororoca.io/docs";
+    private const string DonationsPageUrl = "https://github.com/alexandrehtrb/Pororoca/discussions/159";
 
     public ReactiveCommand<Unit, Unit> OpenDocsInWebBrowserCmd { get; }
 
     public ReactiveCommand<Unit, Unit> OpenGitHubRepoInWebBrowserCmd { get; }
+
+    public ReactiveCommand<Unit, Unit> OpenDonationsPageInWebBrowserCmd { get; }
 
     #endregion
 
@@ -230,6 +237,7 @@ public sealed class MainWindowViewModel : ViewModelBase, ICollectionOrganization
         SelectLanguageSimplifiedChineseCmd = ReactiveCommand.Create(() => SelectLanguage(Language.SimplifiedChinese));
         SelectLanguageGermanCmd = ReactiveCommand.Create(() => SelectLanguage(Language.German));
         SelectLanguageSpanishCmd = ReactiveCommand.Create(() => SelectLanguage(Language.Spanish));
+        SelectLanguagePolishCmd = ReactiveCommand.Create(() => SelectLanguage(Language.Polish));
         #endregion
 
         #region THEMES
@@ -262,6 +270,7 @@ public sealed class MainWindowViewModel : ViewModelBase, ICollectionOrganization
         #region WEBSITES
         OpenDocsInWebBrowserCmd = ReactiveCommand.Create(() => OpenWebBrowser(DocsWebSiteUrl));
         OpenGitHubRepoInWebBrowserCmd = ReactiveCommand.Create(() => OpenWebBrowser(GitHubRepoUrl));
+        OpenDonationsPageInWebBrowserCmd = ReactiveCommand.Create(() => OpenWebBrowser(DonationsPageUrl));
         #endregion
     }
 
@@ -372,6 +381,7 @@ public sealed class MainWindowViewModel : ViewModelBase, ICollectionOrganization
         IsLanguageSimplifiedChinese = lang == Language.SimplifiedChinese;
         IsLanguageGerman = lang == Language.German;
         IsLanguageSpanish = lang == Language.Spanish;
+        IsLanguagePolish = lang == Language.Polish;
     }
 
     #endregion

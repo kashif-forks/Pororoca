@@ -21,13 +21,13 @@
       SelectionChanged="OnSelectedResponseHeadersAndTrailersChanged"
       CanUserResizeColumns="True">
     <!--DataGrid.KeyBindings>
-      <KeyBinding Command="{Binding ResponseDataCtx.ResponseHeadersAndTrailersTableVm.CopyCmd}" Gesture="Ctrl+C" />
+      <KeyBinding Command="{Binding ResponseDataCtx.ResponseHeadersAndTrailersTableVm.CopyCmd, Mode=OneWay}" Gesture="Ctrl+C" />
     </DataGrid.KeyBindings-->
     <DataGrid.ContextMenu>
       <ContextMenu>
         <MenuItem
-            Header="{Binding i18n.ContextMenu.Copy}"
-            Command="{Binding CopyCmd}"
+            Header="{Binding i18n.ContextMenu.Copy, Mode=OneWay}"
+            Command="{Binding CopyCmd, Mode=OneWay}"
             InputGesture="Ctrl+C"/>
       </ContextMenu>
     </DataGrid.ContextMenu>
@@ -36,14 +36,14 @@
           Width="*"
           Binding="{Binding Key}">
         <DataGridTextColumn.Header>
-          <TextBlock Text="{Binding i18n.HttpResponse.HeaderName}"/>
+          <TextBlock Text="{Binding i18n.HttpResponse.HeaderName, Mode=OneWay}"/>
         </DataGridTextColumn.Header>
       </DataGridTextColumn>
       <DataGridTextColumn
           Width="*"
           Binding="{Binding Value}">
         <DataGridTextColumn.Header>
-          <TextBlock Text="{Binding i18n.HttpResponse.HeaderValue}"/>
+          <TextBlock Text="{Binding i18n.HttpResponse.HeaderValue, Mode=OneWay}"/>
         </DataGridTextColumn.Header>
       </DataGridTextColumn>
     </DataGrid.Columns>
