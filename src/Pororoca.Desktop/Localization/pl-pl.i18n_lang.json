@@ -263,6 +263,7 @@
   "TopMenu/File": "Plik",
   "TopMenu/Help": "Pomoc",
   "TopMenu/Options": "Opcje",
+  "TopMenu/Loading": "Ładowanie…",
   "TopMenu/Saved": "Zapisano!",
   "TopMenuFile/Exit": "Wyjście",
   "TopMenuFile/ImportFromFile": "Importuj z pliku…",

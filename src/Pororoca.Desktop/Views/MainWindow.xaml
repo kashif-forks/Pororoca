@@ -319,9 +319,9 @@
             Command="{Binding RunUITestsCmd, Mode=OneWay}"/>
         </MenuItem>
         <MenuItem
-            Header="{Binding i18n.TopMenu.Saved, Mode=OneWay}"
+            Header="{Binding TopRightLabelText, Mode=OneWay}"
             HorizontalAlignment="Right"
-            IsVisible="{Binding IsSavedLabelVisible, Mode=OneWay}"/>
+            IsVisible="{Binding IsTopRightLabelVisible, Mode=OneWay}"/>
         <!--MenuItem
         Header="{Binding i18n.TopMenu.Contribute, Mode=OneWay}"/-->
       </Menu>

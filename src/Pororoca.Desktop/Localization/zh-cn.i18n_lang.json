@@ -263,6 +263,7 @@
   "TopMenu/File": "文件",
   "TopMenu/Help": "帮助",
   "TopMenu/Options": "选项",
+  "TopMenu/Loading": "正在加载…",
   "TopMenu/Saved": "保存!",
   "TopMenuFile/Exit": "退出",
   "TopMenuFile/ImportFromFile": "从文件导入...",
