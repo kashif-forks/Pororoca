@@ -491,7 +491,7 @@ public sealed class MainWindowViewModel : ViewModelBase, ICollectionOrganization
                 // Post() -> enqueue for future (but soon) execution
                 Dispatcher.UIThread.Invoke(() => AddCollection(col));
             }
-            await Task.Delay(800);
+            await Task.Delay(500);
             Dispatcher.UIThread.Invoke(() => IsTopRightLabelVisible = false);
         });
 
