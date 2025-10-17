@@ -1392,6 +1392,37 @@
 	LangString MULTIUSER_ELEVATION_ERROR ${LANG_POLISH} "Nie można podnieść poziomu uprawnień. Błąd: {ERROR}."
 !endif
 
+!ifdef LANG_THAI
+	LangString MULTIUSER_PAGE_TITLE ${LANG_THAI} "เลือกผู้ใช้"
+	LangString MULTIUSER_INSTALL_PAGE_SUBTITLE ${LANG_THAI} "เลือกผู้ใช้ที่จะติดตั้ง $(^NameDA)"
+	LangString MULTIUSER_UNINSTALL_PAGE_SUBTITLE ${LANG_THAI} "เลือกผู้ใช้ที่จะลบ $(^NameDA)"
+	LangString MULTIUSER_INSTALL_HEADER ${LANG_THAI} "เลือกว่าจะติดตั้ง $(^NameDA) สำหรับผู้ใช้ทุกคนหรือผู้ใช้ปัจจุบัน"
+	LangString MULTIUSER_UNINSTALL_HEADER ${LANG_THAI} "$(^NameDA) ติดตั้งไว้สำหรับผู้ใช้ทุกคนและผู้ใช้ปัจจุบัน$\r$\nเลือกการติดตั้งที่จะลบ"
+	LangString MULTIUSER_ALL_USERS ${LANG_THAI} "สำหรับ&ทุกคนที่ใช้คอมพิวเตอร์นี้ (ผู้ใช้ทุกคน)"
+	LangString MULTIUSER_CURRENT_USER ${LANG_THAI} "สำหรับ&ฉัน ({USER})"
+	LangString MULTIUSER_ALL_USERS_UMUI ${LANG_THAI} "สำหรับทุกคนที่ใช้คอมพิวเตอร์นี้ (ผู้ใช้ทุกคน)"
+	LangString MULTIUSER_CURRENT_USER_UMUI ${LANG_THAI} "สำหรับฉัน ({USER})"
+	LangString MULTIUSER_NEW_INSTALLATION_ALL_USERS ${LANG_THAI} "การติดตั้งใหม่สำหรับผู้ใช้ทุกคน"
+	LangString MULTIUSER_NEW_INSTALLATION_CURRENT_USER ${LANG_THAI} "การติดตั้งใหม่สำหรับผู้ใช้ปัจจุบัน"
+	LangString MULTIUSER_INSTALLED_ALL_USERS ${LANG_THAI} "เวอร์ชัน {VERSION} ติดตั้งไว้สำหรับผู้ใช้ทุกคนใน $\"{FOLDER}$\""
+	LangString MULTIUSER_INSTALLED_CURRENT_USER ${LANG_THAI} "เวอร์ชัน {VERSION} ติดตั้งไว้สำหรับผู้ใช้ปัจจุบันใน $\"{FOLDER}$\""
+	LangString MULTIUSER_REINSTALL_SAME_VERSION_ALL_USERS ${LANG_THAI} "ติดตั้งเวอร์ชัน {VERSION} ใหม่สำหรับผู้ใช้ทุกคน"
+	LangString MULTIUSER_REINSTALL_SAME_VERSION_CURRENT_USER ${LANG_THAI} "ติดตั้งเวอร์ชัน {VERSION} ใหม่สำหรับผู้ใช้ปัจจุบัน"
+	LangString MULTIUSER_REINSTALL_DIFF_VERSION_ALL_USERS ${LANG_THAI} "ถอนการติดตั้งเวอร์ชัน {OLD_VERSION} และติดตั้งเวอร์ชัน {VERSION} สำหรับผู้ใช้ทุกคน"
+	LangString MULTIUSER_REINSTALL_DIFF_VERSION_CURRENT_USER ${LANG_THAI} "ถอนการติดตั้งเวอร์ชัน {OLD_VERSION} และติดตั้งเวอร์ชัน {VERSION} สำหรับผู้ใช้ปัจจุบัน"
+	LangString MULTIUSER_RUN_AS_ADMIN ${LANG_THAI} "คุณต้องรันโปรแกรมนี้ในฐานะผู้ดูแลระบบ"
+	LangString MULTIUSER_ADMIN_CREDENTIALS_REQUIRED ${LANG_THAI} "ต้องใช้ข้อมูลประจำตัวผู้ดูแลระบบ"
+	LangString MULTIUSER_ADMIN_UNINSTALL_CREDENTIALS_REQUIRED ${LANG_THAI} "ต้องใช้ข้อมูลประจำตัวผู้ดูแลระบบสำหรับการถอนการติดตั้ง"
+	; error messages - not so important
+	LangString MULTIUSER_INVALID_PARAMS ${LANG_THAI} "การรวมพารามิเตอร์ไม่ถูกต้อง"
+	LangString MULTIUSER_NOT_INSTALLED ${LANG_THAI} "ไม่มีการติดตั้ง $(^NameDA)"
+	LangString MULTIUSER_INSTALLATION_FOR_CURRENT_USER_NOT_SUPPORTED ${LANG_THAI} "ระบบปฏิบัติการไม่รองรับการติดตั้งสำหรับผู้ใช้ปัจจุบัน"
+	LangString MULTIUSER_ADMIN_ACCOUNT_LOGIN_REQUIRED ${LANG_THAI} "คุณต้องเข้าสู่ระบบด้วยบัญชีที่เป็นสมาชิกของกลุ่มผู้ดูแลระบบเพื่อดำเนินการต่อ"
+	LangString MULTIUSER_ELEVATION_NOT_SUPPORTED ${LANG_THAI} "ระบบปฏิบัติการไม่รองรับการยกระดับสิทธิ์"
+	LangString MULTIUSER_LOGON_SERVICE_NOT_RUNNING ${LANG_THAI} "ไม่สามารถยกระดับสิทธิ์ได้ บริการ Secondary Logon ไม่ทำงาน"
+	LangString MULTIUSER_ELEVATION_ERROR ${LANG_THAI} "ไม่สามารถยกระดับสิทธิ์ได้ ข้อผิดพลาด {ERROR}"
+!endif
+
 !ifdef LANG_PORTUGUESE
 	LangString MULTIUSER_PAGE_TITLE ${LANG_PORTUGUESE} "Choose Users"
 	LangString MULTIUSER_INSTALL_PAGE_SUBTITLE ${LANG_PORTUGUESE} "Choose for which users to install $(^NameDA)."

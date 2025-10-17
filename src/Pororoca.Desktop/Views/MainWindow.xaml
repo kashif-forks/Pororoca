@@ -267,6 +267,20 @@
                 </Image>
               </MenuItem.Icon>
             </MenuItem>
+            <MenuItem
+                x:Name="topMenuItemOptionsLanguageThai"
+                Header="{Binding i18n.TopMenuLanguage.Thai, Mode=OneWay}"
+                Command="{Binding SelectLanguageThaiCmd, Mode=OneWay}">
+              <MenuItem.Icon>
+                <Image
+                    IsVisible="{Binding IsLanguageThai, Mode=OneWay}"
+                    Classes="MenuItemCheckMark">
+                  <Image.Source>
+                    <DrawingImage Drawing="{StaticResource IconCheck}"/>
+                  </Image.Source>
+                </Image>
+              </MenuItem.Icon>
+            </MenuItem>
           </MenuItem>
           <MenuItem
               x:Name="topMenuItemOptionsEnableTlsVerification"
