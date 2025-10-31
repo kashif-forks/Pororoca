@@ -63,6 +63,7 @@ public static class MimeTypesDetector
             new("xml", "application/problem+xml"),
             new("xml", "application/fhir+xml"),
             new("xml", "application/soap+xml"),
+            new("xml", "application/vnd.cyclonedx+xml"),
             new("jpeg", "image/jpeg"), // JPEG Image
             new("jpg", "image/jpeg"), // JPEG Image
 
@@ -505,6 +506,13 @@ public static class MimeTypesDetector
             new("json", "application/problem+json"),
             new("json", "application/fhir+json"),
             new("json", "application/json-patch+json"),
+            new("json", "application/ld+json"), // JSON-LD (Linked Data)
+            new("json", "application/graphql-response+json"), // GraphQL JSON
+            new("json", "application/x-ndjson"), // Newline-delimited JSON (NDJSON) for streaming JSON data.
+            new("json", "application/geo+json-seq"),
+            new("json", "application/geo+json"), // GeoJSON
+            new("json", "application/vnd.cyclonedx+json"), // CycloneDX SBOM
+            new("json", "application/spdx+json"), // SPDX SBOM
             new("jut", "image/jutvision"),
             new("jxl", "image/jxl"),
             new("kar", "audio/midi"),
@@ -642,6 +650,9 @@ public static class MimeTypesDetector
             new("mp4", "application/mp4"), // MPEG4
             new("mp4", "video/mp4"), // MPEG-4 Video
             new("mp4a", "audio/mp4"), // MPEG-4 Audio
+            new("mp4", "video/AV1"),
+            new("mp4", "video/H264"),
+            new("mp4", "video/H265"),
             new("mpa", "audio/mpeg"),
             new("mpa", "video/mpeg"),
             new("mpc", "application/vnd.mophun.certificate"), // Mophun Certificate
@@ -1110,7 +1121,8 @@ public static class MimeTypesDetector
             new("uvu", "video/vnd.uvvu.mp4"), // DECE MP4
             new("uvv", "video/vnd.dece.video"), // DECE Video
             new("vcd", "application/x-cdlink"), // Video CD
-            new("vcf", "text/x-vcard"), // vCard
+            new("vcf", "text/x-vcard"),
+            new("vcf", "text/vcard"), // vCard
             new("vcg", "application/vnd.groove-vcard"), // Groove - Vcard
             new("vcs", "text/x-vcalendar"), // vCalendar
             new("vcx", "application/vnd.vcx"), // VirtualCatalog
@@ -1157,6 +1169,7 @@ public static class MimeTypesDetector
             new("web", "application/vnd.xara"),
             new("weba", "audio/webm"), // Open Web Media Project - Audio
             new("webm", "video/webm"), // Open Web Media Project - Video
+            new("webm", "video/VP9"),
             new("webp", "image/webp"), // WebP Image
             new("wg", "application/vnd.pmi.widget"), // Qualcomm's Plaza Mobile Internet
             new("wgt", "application/widget"), // Widget Packaging and XML Configuration
@@ -1174,7 +1187,9 @@ public static class MimeTypesDetector
             new("wmv", "video/x-ms-wmv"), // Microsoft Windows Media Video
             new("wmx", "video/x-ms-wmx"), // Microsoft Windows Media Audio/Video Playlist
             new("wmz", "application/x-ms-wmz"), // Microsoft Windows Media Player Skin Package
-            new("woff", "application/x-font-woff"), // Web Open Font Format
+            new("woff", "application/x-font-woff"),
+            new("woff", "font/woff"),
+            new("woff", "font/woff2"), // Web Open Font Format
             new("word", "application/msword"),
             new("wp", "application/wordperfect"),
             new("wp5", "application/wordperfect"),
