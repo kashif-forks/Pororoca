@@ -68,7 +68,7 @@
         VerticalAlignment="Center"
         TextWrapping="Wrap"
         Classes="SectionTitle"
-        FontSize="12"
+        FontSize="14"
         Foreground="{DynamicResource SystemErrorTextColor}"
         Text="{Binding i18n.ImportExportCurlCommandLineDialog.ImportErrorMessage, Mode=OneWay}"
         IsVisible="{Binding IsErrorMessageVisible, Mode=OneWay}"/>

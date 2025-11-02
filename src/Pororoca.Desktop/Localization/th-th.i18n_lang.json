@@ -42,6 +42,7 @@
   "ContextMenu/Duplicate": "ทำซ้ำ",
   "ContextMenu/Export": "ส่งออก",
   "ContextMenu/ExportAsCurl": "ส่งออกเป็น cURL",
+  "ContextMenu/ImportCurl": "นำเข้า cURL",
   "ContextMenu/ImportEnvironment": "นำเข้าสภาพแวดล้อม",
   "ContextMenu/MoveDown": "ย้ายลง",
   "ContextMenu/MoveUp": "ย้ายขึ้น",

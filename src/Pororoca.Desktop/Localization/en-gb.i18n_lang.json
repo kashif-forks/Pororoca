@@ -42,6 +42,7 @@
   "ContextMenu/Duplicate": "Duplicate",
   "ContextMenu/Export": "Export",
   "ContextMenu/ExportAsCurl": "Export as cURL",
+  "ContextMenu/ImportCurl": "Import cURL",
   "ContextMenu/ImportEnvironment": "Import environment…",
   "ContextMenu/MoveDown": "Move down",
   "ContextMenu/MoveUp": "Move up",

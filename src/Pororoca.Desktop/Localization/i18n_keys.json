@@ -42,6 +42,7 @@
   "ContextMenu/Duplicate",
   "ContextMenu/Export",
   "ContextMenu/ExportAsCurl",
+  "ContextMenu/ImportCurl",
   "ContextMenu/ImportEnvironment",
   "ContextMenu/MoveDown",
   "ContextMenu/MoveUp",

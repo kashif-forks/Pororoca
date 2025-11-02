@@ -42,6 +42,7 @@
   "ContextMenu/Duplicate": "重复",
   "ContextMenu/Export": "导出",
   "ContextMenu/ExportAsCurl": "导出为 cURL",
+  "ContextMenu/ImportCurl": "导入 cURL",
   "ContextMenu/ImportEnvironment": "导入环境...",
   "ContextMenu/MoveDown": "下移",
   "ContextMenu/MoveUp": "上移",
