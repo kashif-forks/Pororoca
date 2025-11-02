@@ -2,6 +2,7 @@ using System.Collections.ObjectModel;
 using System.Reactive;
 using Pororoca.Desktop.HotKeys;
 using Pororoca.Desktop.Localization;
+using Pororoca.Desktop.Views;
 using Pororoca.Domain.Features.Entities.Pororoca;
 using Pororoca.Domain.Features.Entities.Pororoca.Http;
 using Pororoca.Domain.Features.Entities.Pororoca.Repetition;
@@ -18,6 +19,7 @@ public abstract class RequestsAndFoldersParentViewModel : CollectionOrganization
     public ReactiveCommand<Unit, Unit> AddNewHttpRequestCmd { get; }
     public ReactiveCommand<Unit, Unit> AddNewWebSocketConnectionCmd { get; }
     public ReactiveCommand<Unit, Unit> AddNewHttpRepeaterCmd { get; }
+    public ReactiveCommand<Unit, Unit> ImportCurlCmd { get; }
 
     #endregion
 
@@ -37,6 +39,7 @@ public abstract class RequestsAndFoldersParentViewModel : CollectionOrganization
         AddNewHttpRequestCmd = ReactiveCommand.Create(AddNewHttpRequest);
         AddNewWebSocketConnectionCmd = ReactiveCommand.Create(AddNewWebSocketConnection);
         AddNewHttpRepeaterCmd = ReactiveCommand.Create(AddNewHttpRepeater);
+        ImportCurlCmd = ReactiveCommand.Create(OpenImportCurlDialog);
 
         #endregion
 
@@ -176,6 +179,14 @@ public abstract class RequestsAndFoldersParentViewModel : CollectionOrganization
         IsExpanded = true;
         RefreshSubItemsAvailableMovements();
         SetAsItemInFocus(repToAddVm, isNewItem);
+    }
+
+    private void OpenImportCurlDialog()
+    {
+        ImportCurlWindowViewModel vm = new(this);
+        ImportExportCurlWindow window = new();
+        window.DataContext = vm;
+        window.Show(Pororoca.Desktop.Views.MainWindow.Instance!);
     }
 
     protected static int GetLastIndexOf<T>(ObservableCollection<CollectionOrganizationItemViewModel> items) where T : CollectionOrganizationItemViewModel

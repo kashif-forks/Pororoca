@@ -211,6 +211,16 @@ http://localhost:8008 \
     }
 
     [Fact]
+    public static void Should_not_import_cmd_without_the_word_curl()
+    {
+        // GIVEN, WHEN
+        var req = ImportCurlRequest("carl http://www.pudim.com.br/index.html");
+
+        // THEN
+        Assert.Null(req);
+    }
+
+    [Fact]
     public static void Should_import_curl_cmd_single_line_correctly()
     {
         // GIVEN, WHEN

@@ -203,7 +203,7 @@ public static class CurlRequestExporterTests
     }
 
     [Fact]
-    public static void Should_export_req_with_raw_json_body_correctly()
+    public static void Should_export_req_with_raw_minifiable_json_body_correctly()
     {
         // GIVEN
         var body = PororocaHttpRequestBody.MakeRawContent("{\n\"prop\":9,\n\"Arr\":\n[\n\"aaa\",\n\"bbb\",\n\"ccc\"\n]\n}", "application/json");
@@ -219,6 +219,25 @@ public static class CurlRequestExporterTests
         // THEN
         // JSON should be minified, preserving property names
         Assert.Contains("--json '{\"prop\":9,\"Arr\":[\"aaa\",\"bbb\",\"ccc\"]}'", cmdLine);
+    }
+
+    [Fact]
+    public static void Should_export_req_with_raw_unminifiable_json_body_correctly()
+    {
+        // GIVEN
+        var body = PororocaHttpRequestBody.MakeRawContent("{\n\"prop\":\n{{ TemplatedVar }}\n}", "application/json");
+        PororocaHttpRequest req = new(string.Empty,
+            HttpVersion: 1.1m,
+            HttpMethod: "GET",
+            Url: "http://www.pudim.com.br",
+            Body: body);
+
+        // WHEN
+        string cmdLine = ExportAsCurlRequest(req, colScopedAuth: null);
+
+        // THEN
+        // JSON should be preserved unminified, because templated vars block minification
+        Assert.Contains("--json '{\n\"prop\":\n{{ TemplatedVar }}\n}'", cmdLine);
     }
 
     [Fact]

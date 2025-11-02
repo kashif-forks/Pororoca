@@ -13,7 +13,7 @@ public static partial class CurlRequestImporter
     {
         try
         {
-            if (string.IsNullOrWhiteSpace(curlCmdLine))
+            if (string.IsNullOrWhiteSpace(curlCmdLine) || !curlCmdLine.Contains("curl ", StringComparison.InvariantCultureIgnoreCase))
             {
                 return null;
             }

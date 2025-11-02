@@ -16,6 +16,9 @@
     <!-- IconCheck, CC Attribution License, author: Font Awesome, taken from: https://www.svgrepo.com/svg/351857/check -->
     <PathGeometry x:Key="IconCheckGeometry">m173.898 439.404-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z</PathGeometry>
 
+    <!-- IconCurl, Logo License, author: ?, taken from: https://www.svgrepo.com/svg/330244/curl -->
+    <PathGeometry x:Key="IconCurlGeometry">M22.23 4.702a.966.966 0 1 1-.001-1.933.966.966 0 0 1 .001 1.933m-9.608 16.531a.966.966 0 1 1-.001-1.933.966.966 0 0 1 .001 1.933M22.23 1.964c-.978 0-1.771.793-1.771 1.771 0 .209.053.403.119.589l-8.309 14.241c-.803.168-1.418.847-1.418 1.7a1.771 1.771 0 0 0 3.541 0c0-.197-.053-.376-.111-.553l8.351-14.288c.779-.187 1.37-.854 1.37-1.69a1.772 1.772 0 0 0-1.772-1.77m-7.247 2.738a.966.966 0 1 1-.001-1.933.966.966 0 0 1 .001 1.933M5.374 21.233a.967.967 0 1 1 0-1.934.967.967 0 0 1 0 1.934m9.609-19.269a1.77 1.77 0 0 0-1.771 1.771c0 .209.053.403.119.589L5.022 18.565c-.804.168-1.419.847-1.419 1.7a1.771 1.771 0 0 0 3.542 0c0-.197-.053-.376-.111-.553l8.351-14.288c.779-.187 1.37-.854 1.37-1.69a1.772 1.772 0 0 0-1.772-1.77M1.749 7.663a.967.967 0 1 1 0 1.934.967.967 0 0 1 0-1.934m0-.78c-.964 0-1.748.784-1.748 1.748s.784 1.748 1.748 1.748 1.748-.784 1.748-1.748-.784-1.748-1.748-1.748zm0 6.969a.967.967 0 1 1 0 1.934.967.967 0 0 1 0-1.934m0-.78c-.964 0-1.748.784-1.748 1.748s.784 1.748 1.748 1.748 1.748-.784 1.748-1.748-.784-1.748-1.748-1.748z</PathGeometry>
+
     <!-- IconDonate, CC Attribution License, author: boxicons, taken from: https://www.svgrepo.com/svg/334622/donate-heart -->
     <PathGeometry x:Key="IconDonateGeometry">M17.726 13.02 14 16H9v-1h4.065a.5.5 0 0 0 .416-.777l-.888-1.332A1.995 1.995 0 0 0 10.93 12H3a1 1 0 0 0-1 1v6a2 2 0 0 0 2 2h9.639a3 3 0 0 0 2.258-1.024L22 13l-1.452-.484a2.998 2.998 0 0 0-2.822.504zm1.532-5.63c.451-.465.73-1.108.73-1.818s-.279-1.353-.73-1.818A2.447 2.447 0 0 0 17.494 3S16.25 2.997 15 4.286C13.75 2.997 12.506 3 12.506 3a2.45 2.45 0 0 0-1.764.753c-.451.466-.73 1.108-.73 1.818s.279 1.354.73 1.818L15 12l4.258-4.61z</PathGeometry>
 
@@ -72,6 +75,7 @@
     <GeometryDrawing x:Key="IconAddFolder" Brush="{DynamicResource DefaultIconsBrush}" Geometry="{StaticResource IconAddFolderGeometry}" />
     <GeometryDrawing x:Key="IconArrowBack" Brush="{DynamicResource DefaultIconsBrush}" Geometry="{StaticResource IconArrowBackGeometry}" />
     <GeometryDrawing x:Key="IconCheck" Brush="{DynamicResource DefaultIconsBrush}" Geometry="{StaticResource IconCheckGeometry}" />
+    <GeometryDrawing x:Key="IconCurl" Brush="{DynamicResource DefaultIconsBrush}" Geometry="{StaticResource IconCurlGeometry}" />
     <GeometryDrawing x:Key="IconDonate" Brush="{DynamicResource DefaultIconsBrush}" Geometry="{StaticResource IconDonateGeometry}" />
     <GeometryDrawing x:Key="IconEdit" Brush="{DynamicResource DefaultIconsBrush}" Geometry="{StaticResource IconEditGeometry}" />
     <GeometryDrawing x:Key="IconExport" Brush="{DynamicResource DefaultIconsBrush}" Geometry="{StaticResource IconExportGeometry}" />

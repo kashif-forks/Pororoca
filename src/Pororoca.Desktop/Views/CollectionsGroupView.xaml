@@ -238,6 +238,10 @@
                   IsEnabled="{Binding CanMoveDown, Mode=OneWay}"
                   IsVisible="{Binding !HotKeys.HasMultipleItemsSelected, Mode=OneWay}"/>
               <MenuItem
+                  Header="{Binding i18n.ContextMenu.ExportAsCurl, Mode=OneWay}"
+                  Command="{Binding HotKeys.ExportAsCurlCmd, Mode=OneWay}"
+                  IsVisible="{Binding !HotKeys.HasMultipleItemsSelected, Mode=OneWay}"/>
+              <MenuItem
                   Header="{Binding i18n.ContextMenu.Delete, Mode=OneWay}"
                   Command="{Binding HotKeys.DeleteCmd, Mode=OneWay}"
                   InputGesture="Delete"/>

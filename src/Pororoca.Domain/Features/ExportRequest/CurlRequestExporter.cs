@@ -81,7 +81,10 @@ public static class CurlRequestExporter
                     bool isFile = req.Body.Mode == PororocaHttpRequestBodyMode.File;
                     if (req.Body.ContentType != null && req.Body.ContentType.Contains("json"))
                     {
-                        sb.AppendLine($"--json {(isFile ? ('@' + req.Body.FileSrcPath) : ('\'' + MinifyJsonString(req.Body.RawContent!) + '\''))} \\");
+                        sb.AppendLine(
+                            isFile ?
+                            $"--json @{req.Body.FileSrcPath} \\" :
+                            $"--json '{TryMinifyJsonString(req.Body.RawContent!)}' \\");
                     }
                     else
                     {
@@ -118,5 +121,20 @@ public static class CurlRequestExporter
 
         // removing whitespaces, backslashes and line-breaks at the end
         return sb.ToString().TrimEnd(' ', '\\', '\r', '\n');
+    }
+
+    private static string TryMinifyJsonString(string originalJson)
+    {
+        // sometimes we can't minify a JSON,
+        // especially if there is a templated variable in it, e.g.
+        // { "id": {{ MyId }} }
+        try
+        {
+            return MinifyJsonString(originalJson);
+        }
+        catch
+        {
+            return originalJson;
+        }
     }
 }

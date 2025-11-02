@@ -50,6 +50,12 @@
         Text="{Binding i18n.CollectionFolder.AddHttpRepeater, Mode=OneWay}"
         Command="{Binding AddNewHttpRepeaterCmd, Mode=OneWay}"/>
 
+    <controls:IconButton
+        x:Name="btImportCurlReq"
+        Icon="{StaticResource IconCurlGeometry}"
+        Text="{Binding i18n.CollectionFolder.ImportCurlCommandLine, Mode=OneWay}"
+        Command="{Binding ImportCurlCmd, Mode=OneWay}"/>
+
   </StackPanel>
 
 </UserControl>
