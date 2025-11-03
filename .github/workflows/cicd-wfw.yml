@@ -471,7 +471,7 @@ jobs:
 
     - name: Upload artifacts to workflow results (Windows machine)
       # no need if uploading to release
-      if: ${{ inputs.runCD && (inputs.uploadArtifactsToRelease == false) && (inputs.os == 'windows-latest') }}
+      if: ${{ inputs.runCD && (inputs.uploadArtifactsToRelease == false) && (inputs.os == 'windows-2022') }} # TODO: Switch to windows-latest and install NSIS
       uses: actions/upload-artifact@v4
       with:
         compression-level: 0 # artifacts already compressed
