@@ -1,5 +1,6 @@
 # Changelog
 
+* [3.9.0](#390-2025-11-03)
 * [3.8.3](#383-2025-09-10)
 * [3.8.2](#382-2025-08-11)
 * [3.8.1](#381-2025-08-07) (removed due to a bug)
@@ -44,6 +45,23 @@
 * [1.1.0](#110-2022-03-20)
 * [1.0.0](#100-2022-03-08)
 
+## [3.9.0](https://github.com/alexandrehtrb/Pororoca/tree/3.9.0) (2025-11-03)
+
+### Features
+
+- cURL import and export. (issue #165)
+- Thai translation. (issue #181, thanks @iakgoog!)
+- 'Loading...' message on top-right corner to indicate loading progress.
+- Added support for more MIME types.
+
+### Others
+
+- Raised .NET SDK version to 8.0.415.
+
+### New Contributors
+
+* @iakgoog made his first contribution in PR #182
+
 ## [3.8.3](https://github.com/alexandrehtrb/Pororoca/tree/3.8.3) (2025-09-10)
 
 ### Features
@@ -61,6 +79,11 @@
 
 - Raised .NET SDK version to 8.0.414.
 - Added donation buttons.
+
+### New Contributors
+
+- @OlivGhanim made his first contribution in PR #168
+- @pq4u made his first contribution in PR #169
 
 ## [3.8.2](https://github.com/alexandrehtrb/Pororoca/tree/3.8.2) (2025-08-11)
 
