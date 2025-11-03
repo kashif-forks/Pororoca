@@ -34,4 +34,7 @@ public static class JsonUtils
         using var jDoc = JsonDocument.Parse(json);
         return JsonSerializer.Serialize(jDoc, PrettifyJsonCtx.JsonDocument);
     }
+
+    internal static string MinifyJsonString(string json) =>
+        JsonSerializer.Serialize(JsonSerializer.Deserialize(json, MinifyingJsonCtx.JsonDocument), MinifyingJsonCtx.JsonDocument!)!;
 }

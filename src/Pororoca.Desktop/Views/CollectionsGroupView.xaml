@@ -87,6 +87,10 @@
                   Command="{Binding AddNewHttpRepeaterCmd, Mode=OneWay}"
                   IsVisible="{Binding !HotKeys.HasMultipleItemsSelected, Mode=OneWay}"/>
               <MenuItem
+                  Header="{Binding i18n.ContextMenu.ImportCurl, Mode=OneWay}"
+                  Command="{Binding ImportCurlCmd, Mode=OneWay}"
+                  IsVisible="{Binding !HotKeys.HasMultipleItemsSelected, Mode=OneWay}"/>
+              <MenuItem
                   Header="{Binding i18n.ContextMenu.Duplicate, Mode=OneWay}"
                   Command="{Binding HotKeys.DuplicateCmd, Mode=OneWay}"
                   InputGesture="Ctrl+D"
@@ -142,6 +146,10 @@
               <MenuItem
                   Header="{Binding i18n.ContextMenu.NewHttpRepeater, Mode=OneWay}"
                   Command="{Binding AddNewHttpRepeaterCmd, Mode=OneWay}"
+                  IsVisible="{Binding !HotKeys.HasMultipleItemsSelected, Mode=OneWay}"/>
+              <MenuItem
+                  Header="{Binding i18n.ContextMenu.ImportCurl, Mode=OneWay}"
+                  Command="{Binding ImportCurlCmd, Mode=OneWay}"
                   IsVisible="{Binding !HotKeys.HasMultipleItemsSelected, Mode=OneWay}"/>
               <MenuItem
                   Header="{Binding i18n.ContextMenu.Cut, Mode=OneWay}"
@@ -236,6 +244,10 @@
                   Command="{Binding HotKeys.MoveDownCmd, Mode=OneWay}"
                   InputGesture="Alt+Down"
                   IsEnabled="{Binding CanMoveDown, Mode=OneWay}"
+                  IsVisible="{Binding !HotKeys.HasMultipleItemsSelected, Mode=OneWay}"/>
+              <MenuItem
+                  Header="{Binding i18n.ContextMenu.ExportAsCurl, Mode=OneWay}"
+                  Command="{Binding HotKeys.ExportAsCurlCmd, Mode=OneWay}"
                   IsVisible="{Binding !HotKeys.HasMultipleItemsSelected, Mode=OneWay}"/>
               <MenuItem
                   Header="{Binding i18n.ContextMenu.Delete, Mode=OneWay}"

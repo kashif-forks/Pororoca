@@ -51,6 +51,12 @@
         Command="{Binding AddNewHttpRepeaterCmd, Mode=OneWay}"/>
 
     <controls:IconButton
+        x:Name="btImportCurlReq"
+        Icon="{StaticResource IconCurlGeometry}"
+        Text="{Binding i18n.Collection.ImportCurlCommandLine, Mode=OneWay}"
+        Command="{Binding ImportCurlCmd, Mode=OneWay}"/>
+
+    <controls:IconButton
         x:Name="btSetColScopedReqHeaders"
         Icon="{StaticResource IconHeadersGeometry}"
         Text="{Binding i18n.Collection.SetCollectionScopedHeaders, Mode=OneWay}"

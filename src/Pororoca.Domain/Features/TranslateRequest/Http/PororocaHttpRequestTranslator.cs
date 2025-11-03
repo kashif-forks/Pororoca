@@ -161,27 +161,7 @@ public static class PororocaHttpRequestTranslator
 
         StringContent MakeGraphQlContent()
         {
-            string? variables = resolvedBody!.GraphQlValues!.Variables;
-            JsonDocument? variablesJsonDoc = null;
-            if (!string.IsNullOrWhiteSpace(variables))
-            {
-                try
-                {
-                    // this deserailize-serialize is solely
-                    // to allow comments in GraphQL variables textbox
-                    variablesJsonDoc = JsonDocument.Parse(variables, GraphQlJsonOptions);
-                }
-                catch
-                {
-                    variablesJsonDoc = JsonDocument.Parse("{}");
-                }
-            }
-            string variablesJsonStr =
-                variablesJsonDoc is null ?
-                "null" :
-                JsonSerializer.Serialize(variablesJsonDoc.RootElement, MinifyingJsonCtx.JsonElement);
-            string json = "{\"query\":\"" + resolvedBody!.GraphQlValues!.Query! + "\",\"variables\":" + variablesJsonStr + "}";
-
+            string json = MakeGraphQlJson(resolvedBody.GraphQlValues!);
             return new(json, Encoding.UTF8, MimeTypesDetector.DefaultMimeTypeForJson);
         }
 
@@ -204,6 +184,30 @@ public static class PororocaHttpRequestTranslator
         }
 
         return content;
+    }
+
+    internal static string MakeGraphQlJson(PororocaHttpRequestBodyGraphQl gqlValues)
+    {
+        string? variables = gqlValues.Variables;
+        JsonDocument? variablesJsonDoc = null;
+        if (!string.IsNullOrWhiteSpace(variables))
+        {
+            try
+            {
+                // this deserailize-serialize is solely
+                // to allow comments in GraphQL variables textbox
+                variablesJsonDoc = JsonDocument.Parse(variables, GraphQlJsonOptions);
+            }
+            catch
+            {
+                variablesJsonDoc = JsonDocument.Parse("{}");
+            }
+        }
+        string variablesJsonStr =
+            variablesJsonDoc is null ?
+            "null" :
+            JsonSerializer.Serialize(variablesJsonDoc.RootElement, MinifyingJsonCtx.JsonElement);
+        return "{\"query\":\"" + gqlValues.Query! + "\",\"variables\":" + variablesJsonStr + "}";
     }
 
     #endregion

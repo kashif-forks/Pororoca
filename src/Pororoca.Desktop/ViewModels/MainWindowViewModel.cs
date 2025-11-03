@@ -29,7 +29,10 @@ public sealed class MainWindowViewModel : ViewModelBase, ICollectionOrganization
     public ReactiveCommand<Unit, Unit> ImportCollectionsFromFileCmd { get; }
 
     [Reactive]
-    public bool IsSavedLabelVisible { get; set; }
+    public bool IsTopRightLabelVisible { get; set; }
+
+    [Reactive]
+    public string TopRightLabelText { get; set; }
 
     public ReactiveCommand<Unit, Unit> SaveAllCmd { get; }
 
@@ -100,6 +103,10 @@ public sealed class MainWindowViewModel : ViewModelBase, ICollectionOrganization
     [Reactive]
     public bool IsLanguagePolish { get; set; }
     public ReactiveCommand<Unit, Unit> SelectLanguagePolishCmd { get; }
+
+    [Reactive]
+    public bool IsLanguageThai { get; set; }
+    public ReactiveCommand<Unit, Unit> SelectLanguageThaiCmd { get; }
 
     #endregion
 
@@ -208,7 +215,8 @@ public sealed class MainWindowViewModel : ViewModelBase, ICollectionOrganization
         CollectionsGroupViewDataCtx = new(this, SwitchVisiblePage);
         ImportCollectionsFromFileCmd = ReactiveCommand.CreateFromTask(ImportCollectionsAsync);
         AddNewCollectionCmd = ReactiveCommand.Create(AddNewCollection);
-        IsSavedLabelVisible = false;
+        IsTopRightLabelVisible = false;
+        TopRightLabelText = string.Empty;
         SaveAllCmd = ReactiveCommand.CreateFromTask(SaveAllAsync);
         #endregion
 
@@ -238,6 +246,7 @@ public sealed class MainWindowViewModel : ViewModelBase, ICollectionOrganization
         SelectLanguageGermanCmd = ReactiveCommand.Create(() => SelectLanguage(Language.German));
         SelectLanguageSpanishCmd = ReactiveCommand.Create(() => SelectLanguage(Language.Spanish));
         SelectLanguagePolishCmd = ReactiveCommand.Create(() => SelectLanguage(Language.Polish));
+        SelectLanguageThaiCmd = ReactiveCommand.Create(() => SelectLanguage(Language.Thai));
         #endregion
 
         #region THEMES
@@ -361,10 +370,14 @@ public sealed class MainWindowViewModel : ViewModelBase, ICollectionOrganization
 
     private async Task SaveAllAsync()
     {
-        SaveUserData();
-        IsSavedLabelVisible = true;
-        await Task.Delay(3000);
-        IsSavedLabelVisible = false;
+        if (CanSaveUserData())
+        {
+            SaveUserData();
+            TopRightLabelText = Localizer.Instance.TopMenu.Saved;
+            IsTopRightLabelVisible = true;
+            await Task.Delay(3000);
+            IsTopRightLabelVisible = false;
+        }        
     }
 
     #endregion
@@ -382,6 +395,7 @@ public sealed class MainWindowViewModel : ViewModelBase, ICollectionOrganization
         IsLanguageGerman = lang == Language.German;
         IsLanguageSpanish = lang == Language.Spanish;
         IsLanguagePolish = lang == Language.Polish;
+        IsLanguageThai = lang == Language.Thai;
     }
 
     #endregion
@@ -471,6 +485,11 @@ public sealed class MainWindowViewModel : ViewModelBase, ICollectionOrganization
     private void LoadUserCollections() =>
         this.loadUserCollectionsTask = Task.Run(async () =>
         {
+            Dispatcher.UIThread.Invoke(() =>
+            {
+                TopRightLabelText = Localizer.Instance.TopMenu.Loading;
+                IsTopRightLabelVisible = true;
+            });
             await foreach (var col in UserDataManager.LoadUserCollectionsAsync())
             {
                 // needs to be Invoke() instead of Post().
@@ -478,12 +497,17 @@ public sealed class MainWindowViewModel : ViewModelBase, ICollectionOrganization
                 // Post() -> enqueue for future (but soon) execution
                 Dispatcher.UIThread.Invoke(() => AddCollection(col));
             }
+            await Task.Delay(500);
+            Dispatcher.UIThread.Invoke(() => IsTopRightLabelVisible = false);
         });
+
+    private bool CanSaveUserData() =>
+        this.loadUserCollectionsTask != null && this.loadUserCollectionsTask.IsCompleted;
 
     public void SaveUserData()
     {
         // This means that the user data is still being loaded.
-        if (this.loadUserCollectionsTask == null || this.loadUserCollectionsTask.IsCompleted == false)
+        if (CanSaveUserData() == false)
         {
             // IMPORTANT!
             // This protects against deleting all collections

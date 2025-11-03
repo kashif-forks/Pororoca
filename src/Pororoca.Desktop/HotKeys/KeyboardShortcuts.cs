@@ -6,6 +6,7 @@ using MsBox.Avalonia.Enums;
 using Pororoca.Desktop.Localization;
 using Pororoca.Desktop.ViewModels;
 using Pororoca.Desktop.Views;
+using Pororoca.Domain.Features.ExportRequest;
 using Pororoca.Infrastructure.Features.Requester;
 using Pororoca.Infrastructure.Features.WebSockets;
 using ReactiveUI;
@@ -38,6 +39,7 @@ public sealed class KeyboardShortcuts : ViewModelBase
     public ReactiveCommand<Unit, Unit> SaveResponseToFileCmd { get; }
     public ReactiveCommand<Unit, Unit> ExportHttpLogToFileCmd { get; }
     public ReactiveCommand<Unit, Unit> FocusOnUrlCmd { get; }
+    public ReactiveCommand<Unit, Unit> ExportAsCurlCmd { get; }
 
     #region HELPER PROPERTIES
 
@@ -130,6 +132,7 @@ public sealed class KeyboardShortcuts : ViewModelBase
         CycleNextEnvironmentToActiveCmd = ReactiveCommand.Create(() => CycleActiveEnvironments(true));
         SaveResponseToFileCmd = ReactiveCommand.Create(SaveResponseToFile);
         ExportHttpLogToFileCmd = ReactiveCommand.Create(ExportHttpLogToFile);
+        ExportAsCurlCmd = ReactiveCommand.Create(ExportAsCurl);
     }
 
     #region COPY AND CUT
@@ -554,6 +557,22 @@ public sealed class KeyboardShortcuts : ViewModelBase
         else if (mwvm.HttpRepeaterView.Visible && mwvm.HttpRepeaterView.VM?.ResponseDataCtx?.IsExportLogFileVisible == true)
         {
             Dispatcher.UIThread.Post(async () => await mwvm.HttpRepeaterView.VM.ResponseDataCtx.ExportLogToFileAsync());
+        }
+    }
+
+    internal void ExportAsCurl()
+    {
+        var mwvm = MainWindowVm;
+        if (mwvm.HttpRequestView.Visible)
+        {
+            var colScopedAuth = mwvm.HttpRequestView.VM!.col.CollectionScopedAuth;
+            var req = mwvm.HttpRequestView.VM!.ToHttpRequest();
+            string curlCmd = CurlRequestExporter.ExportAsCurlRequest(req, colScopedAuth);
+
+            ExportCurlWindowViewModel vm = new(curlCmd);
+            ImportExportCurlWindow window = new();
+            window.DataContext = vm;
+            window.Show(Pororoca.Desktop.Views.MainWindow.Instance!);
         }
     }
 
