@@ -58,9 +58,10 @@
 
 - Raised .NET SDK version to 8.0.419.
 - Updated badssl.com client certificates for tests.
-- **Breaking changes**, if you use `Pororoca.Test` NuGet package:
+- If you use `Pororoca.Test` NuGet package:
   - `WebSocketConnectorState` renamed to `WebSocketConnectionState`
-  - `ReadAsJson` renamed to `ReadAsUtf8Json`.
+  - `ReadAsJson` renamed to `ReadAsUtf8Json`
+  - You can now define if the WebSocket will collect only server-side messages.
 
 ### New Contributors
 

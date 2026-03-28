@@ -15,8 +15,10 @@ public sealed class PororocaTestWebSocketConnector : WebSocketClientSideConnecto
 
     public PororocaTestWebSocketConnector(IPororocaVariableResolver varResolver,
                                           PororocaWebSocketConnection connection,
+                                          bool collectOnlyServerSideMessages = false,
+                                          int bufferSize = WebSocketConnector.DefaultBufferSize,
                                           Action<WebSocketConnectionState, Exception?>? onConnectionChanged = null) :
-        base(collectOnlyServerSideMessages: false)
+        base(collectOnlyServerSideMessages, bufferSize)
     {
         this.varResolver = varResolver;
         this.connection = connection;

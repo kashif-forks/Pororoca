@@ -110,6 +110,35 @@ public sealed class PororocaTestLibraryWebSocketsTests
     [Theory]
     [InlineData("WebSocket HTTP1")]
     [InlineData("WebSocket HTTP2")]
+    public async Task Should_optionally_collect_only_server_side_messages(string wsConnName)
+    {
+        // GIVEN
+        var ws = await this.pororocaTest.ConnectWebSocketAsync(wsConnName, collectOnlyServerSideMessages: true);
+        Assert.Equal(WebSocketConnectionState.Connected, ws.State);
+        // WHEN
+        await ws.SendMessageAsync("Hello");
+        // THEN
+        // The server should reply with a text message
+        int msgCount = 0;
+        await foreach (var msg in ws.ExchangedMessagesCollector!.ReadAllAsync())
+        {
+            msgCount++;
+            if (msgCount == 1)
+            {
+                Assert.Equal(WebSocketMessageDirection.FromServer, msg.Direction);
+                Assert.Equal(WebSocketMessageType.Text, msg.Type);
+                Assert.Equal("received text (5 bytes): Hello", msg.ReadAsUtf8Text());
+
+                // Teardown
+                await ws.DisconnectAsync();
+            }
+        }
+        Assert.Equal(1, msgCount);
+    }
+
+    [Theory]
+    [InlineData("WebSocket HTTP1")]
+    [InlineData("WebSocket HTTP2")]
     public async Task Should_send_and_receive_binary_messages_successfully(string wsConnName)
     {
         // GIVEN
