@@ -157,7 +157,7 @@ public sealed class PororocaTest
     }
 
     public Task<PororocaTestWebSocketConnector> ConnectWebSocketAsync(string wsName,
-                                                                      Action<WebSocketConnectorState, Exception?>? onConnectionChanged = null,
+                                                                      Action<WebSocketConnectionState, Exception?>? onConnectionChanged = null,
                                                                       CancellationToken cancellationToken = default)
     {
         var ws = FindWebSocketInCollection(x => x.Name == wsName);
@@ -172,7 +172,7 @@ public sealed class PororocaTest
     }
 
     public async Task<PororocaTestWebSocketConnector> ConnectWebSocketAsync(PororocaWebSocketConnection ws,
-                                                                            Action<WebSocketConnectorState, Exception?>? onConnectionChanged = null,
+                                                                            Action<WebSocketConnectionState, Exception?>? onConnectionChanged = null,
                                                                             CancellationToken cancellationToken = default)
     {
         var effectiveVars = ((IPororocaVariableResolver)Collection).GetEffectiveVariables();

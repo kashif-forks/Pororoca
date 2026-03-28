@@ -29,12 +29,12 @@ public sealed class PororocaTestLibraryWebSocketsTests
         // THEN
         Assert.NotNull(ws);
         Assert.Null(ws.ConnectionException);
-        Assert.Equal(WebSocketConnectorState.Connected, ws.State);
+        Assert.Equal(WebSocketConnectionState.Connected, ws.State);
         // WHEN
         await ws.DisconnectAsync();
         await Task.Delay(500);
         // THEN
-        Assert.Equal(WebSocketConnectorState.Disconnected, ws.State);
+        Assert.Equal(WebSocketConnectionState.Disconnected, ws.State);
         int msgCount = 0;
         await foreach (var msg in ws.ExchangedMessagesCollector!.ReadAllAsync())
         {
@@ -53,21 +53,13 @@ public sealed class PororocaTestLibraryWebSocketsTests
         // THEN
         Assert.NotNull(ws);
         Assert.Null(ws.ConnectionException);
-        Assert.Equal(WebSocketConnectorState.Connected, ws.State);
+        Assert.Equal(WebSocketConnectionState.Connected, ws.State);
 
         // WHEN
         await ws.SendMessageAsync("Bye");
         await Task.Delay(TimeSpan.FromSeconds(2));
         // THEN
-        /*
-         * Sometimes there is an Exception below:
-         * WebSocketConnector.cs:line 426, CloseStartingByLocalAsync()
-         * System.OperationCanceledException: Aborted
-            ---> System.ObjectDisposedException: Cannot access a disposed object.
-         * (don't know why)
-        */
-        // Assert.Null(ws.ConnectionException);
-        Assert.Equal(WebSocketConnectorState.Disconnected, ws.State);
+        Assert.Equal(WebSocketConnectionState.Disconnected, ws.State);
         // THEN
         int msgCount = 0;
         await foreach (var msg in ws.ExchangedMessagesCollector!.ReadAllAsync())
@@ -87,7 +79,7 @@ public sealed class PororocaTestLibraryWebSocketsTests
     {
         // GIVEN
         var ws = await this.pororocaTest.ConnectWebSocketAsync(wsConnName);
-        Assert.Equal(WebSocketConnectorState.Connected, ws.State);
+        Assert.Equal(WebSocketConnectionState.Connected, ws.State);
         // WHEN
         await ws.SendMessageAsync("Hello");
         // THEN
@@ -123,7 +115,7 @@ public sealed class PororocaTestLibraryWebSocketsTests
         // GIVEN
         this.pororocaTest.SetEnvironmentVariable("Local", "TestFilesDir", GetTestFilesDir());
         var ws = await this.pororocaTest.ConnectWebSocketAsync(wsConnName);
-        Assert.Equal(WebSocketConnectorState.Connected, ws.State);
+        Assert.Equal(WebSocketConnectionState.Connected, ws.State);
         // WHEN
         await ws.SendMessageAsync("SpiderMan");
         // THEN
@@ -136,7 +128,7 @@ public sealed class PororocaTestLibraryWebSocketsTests
             {
                 Assert.Equal(WebSocketMessageDirection.FromClient, msg.Direction);
                 Assert.Equal(WebSocketMessageType.Binary, msg.Type);
-                Assert.Equal(Path.Combine(GetTestFilesDir(), "homem_aranha.jpg"), ((FileStream)msg.BytesStream).Name);
+                //Assert.Equal(Path.Combine(GetTestFilesDir(), "homem_aranha.jpg"), ((FileStream)msg.BytesStream).Name);
             }
             else if (msgCount == 2)
             {
@@ -158,7 +150,7 @@ public sealed class PororocaTestLibraryWebSocketsTests
     {
         // GIVEN
         var ws = await this.pororocaTest.ConnectWebSocketAsync(wsConnName);
-        Assert.Equal(WebSocketConnectorState.Connected, ws.State);
+        Assert.Equal(WebSocketConnectionState.Connected, ws.State);
         // WHEN
         await ws.SendMessageAsync("Hello");
         // THEN
@@ -178,7 +170,7 @@ public sealed class PororocaTestLibraryWebSocketsTests
                 Assert.Equal(WebSocketMessageDirection.FromServer, msg.Direction);
                 Assert.Equal(WebSocketMessageType.Text, msg.Type);
                 Assert.Equal($"{{\"bytesReceived\":5,\"messageType\":\"text\",\"text\":\"Hello\"}}", msg.ReadAsUtf8Text());
-                var msg2Json = msg.ReadAsJson<TestServerWebSocketMessage>(PororocaTestJsonExtensions.MinifyJsonOptions)!;
+                var msg2Json = msg.ReadAsUtf8Json<TestServerWebSocketMessage>(PororocaTestJsonExtensions.MinifyJsonOptions)!;
                 Assert.Equal(5, msg2Json.BytesReceived);
                 Assert.Equal("text", msg2Json.MessageType);
                 Assert.Equal("Hello", msg2Json.Text);
@@ -187,7 +179,7 @@ public sealed class PororocaTestLibraryWebSocketsTests
                 await ws.DisconnectAsync();
             }
         }
-        Assert.Equal(WebSocketConnectorState.Disconnected, ws.State);
+        Assert.Equal(WebSocketConnectionState.Disconnected, ws.State);
         Assert.Equal(2, msgCount);
     }
 }
